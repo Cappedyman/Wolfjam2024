@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd7y0ara0i4hw"]
+[gd_scene load_steps=6 format=3 uid="uid://bd7y0ara0i4hw"]
 
 [ext_resource type="Script" path="res://Scenes/FishStore/freezer.gd" id="1_7xjnb"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_nklps"]
@@ -8,6 +8,9 @@ size = Vector2(58, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aavet"]
 size = Vector2(2314, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao64t"]
+size = Vector2(24.5, 46)
 
 [node name="Freezer" type="Node2D"]
 script = ExtResource("1_7xjnb")
@@ -50,5 +53,28 @@ text = "Freeze, Don't Move :3"
 [node name="Cat" parent="." instance=ExtResource("2_nklps")]
 position = Vector2(192, 424)
 
+[node name="Fish" type="Area2D" parent="."]
+position = Vector2(513, 387)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
+position = Vector2(-1, 35)
+shape = SubResource("RectangleShape2D_ao64t")
+
+[node name="ColorRect" type="ColorRect" parent="Fish"]
+offset_left = -13.0
+offset_top = 12.0
+offset_right = 11.0
+offset_bottom = 58.0
+color = Color(0.819419, 0.443774, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Fish"]
+offset_left = -17.0
+offset_top = -12.0
+offset_right = 23.0
+offset_bottom = 11.0
+text = "fish"
+
 [connection signal="body_entered" from="FreezerDoorReverse" to="." method="_on_freezer_door_reverse_body_entered"]
 [connection signal="body_exited" from="FreezerDoorReverse" to="." method="_on_freezer_door_reverse_body_exited"]
+[connection signal="body_entered" from="Fish" to="." method="_on_fish_body_entered"]
