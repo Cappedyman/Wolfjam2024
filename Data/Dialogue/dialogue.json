@@ -1,7 +1,7 @@
 {
 	"0": {
 		"name": "Hobo",
-		"dialogue-image": "image path",
+		"image": "image path",
 		"pre-quest-dialogue": 
 			"@nHmm... what's this?\n
 			 @cMeow (Curious)\n
@@ -24,7 +24,47 @@
 	},
 	"1": {
 		"name": "Fish-Guy",
-		"dialogue-image": "image path",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"2": {
+		"name": "Couple",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"3": {
+		"name": "Depressed-Man",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"4": {
+		"name": "Cashier",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"5": {
+		"name": "Pharmasist",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"6": {
+		"name": "Fleurist",
+		"image": "image path",
 		"pre-quest-dialogue": "",
 		"during-quest-dialogue": "",
 		"post-quest-dialogue": "",
