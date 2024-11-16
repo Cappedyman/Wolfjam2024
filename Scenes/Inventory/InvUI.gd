@@ -25,6 +25,8 @@ func update_slots():
 		childrens.texture = load(item_dict["image"])
 		childrens.name = item_dict["name"]
 		childrens.description = item_dict["description"]
+		
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -50,6 +52,8 @@ func _input(event: InputEvent) -> void:
 			open()
 			inventoryActive = false
 			_on_quest_button_pressed()
+	if Input.is_action_just_pressed("escape") and isOpen:
+		close()
 	
 func open():
 	# sets quest/inventory window to visible
