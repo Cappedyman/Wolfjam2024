@@ -1,25 +1,70 @@
 {
 	"0": {
 		"name": "Hobo",
-		"dialogue-image": "image path",
+		"image": "image path",
 		"pre-quest-dialogue": 
-			"Hmm... what's this?\n
-			 A stray... how unfortunate.",
+			"@nHmm... what's this?\n
+			 @cMeow (Curious)\n
+			 @nA stray... how unfortunate.",
 		"during-quest-dialogue":
-			"Go get that key and then we can talk about finding you a family.",
+			"@nGo get that key and then we can talk about finding you a family.",
 		"post-quest-dialogue":
-			"Good job! Now we can leave this alley!\n
-			...What?\n
-			Ah yes a family, well you don't actually need one now do you?\n
-			Fine fine, however, there's one condition.\n
-			You need to make three friends before I can find you a family\n
-			It can't be that hard can it?",
+			"@nGood job! Now we can leave this alley!\n
+			 @cMeow (Short)\n
+			 @n...What?\n
+			 @cMeow (Short)\n
+			 @nAh yes a family, well you don't actually need one now do you?\n
+			 @cMeow (Angry)\n
+			 @nFine fine, however, there's one condition.\n
+			 You need to make three friends before I can find you a family\n
+			 @cMeow (Annoyed)\n
+			 @nIt can't be that hard can it?",
 		"residual-dialogue":
-			"Go on now, you still need to find friends!"
+			"@nGo on now, you still need to find friends!"
 	},
 	"1": {
 		"name": "Fish-Guy",
-		"dialogue-image": "image path",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"2": {
+		"name": "Couple",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"3": {
+		"name": "Depressed-Man",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"4": {
+		"name": "Cashier",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"5": {
+		"name": "Pharmasist",
+		"image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	},
+	"6": {
+		"name": "Fleurist",
+		"image": "image path",
 		"pre-quest-dialogue": "",
 		"during-quest-dialogue": "",
 		"post-quest-dialogue": "",

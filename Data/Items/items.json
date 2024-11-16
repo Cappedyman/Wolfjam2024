@@ -1,6 +1,27 @@
 {
 	"0": {
 		"name": "Rusted Key",
+		"image": "image path",
 		"description": "Brown, rusted key. Very stinky :("
+	},
+	"1": {
+		"name": "Fish",
+		"image": "image path",
+		"description": "Mmmm so yummy. I almost wanna eat it for myself >:)"
+	},
+	"2": {
+		"name": "Rose",
+		"image": "image path",
+		"description": "YOUCH, this thing stings!! :O"
+	},
+	"3": {
+		"name": "ID",
+		"image": "image path",
+		"description": "blah blah blah blah blah"
+	},
+	"4": {
+		"name": "Antidepressants",
+		"image": "image path",
+		"description": "Meow"
 	}
 }
