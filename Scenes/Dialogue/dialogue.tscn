@@ -53,3 +53,10 @@ offset_left = 204.0
 offset_top = 27.0
 offset_right = 667.0
 offset_bottom = 164.0
+
+[node name="Button" type="Button" parent="Box"]
+layout_mode = 0
+offset_left = 616.6
+offset_top = 140.432
+offset_right = 685.6
+offset_bottom = 179.432

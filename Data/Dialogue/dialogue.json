@@ -3,11 +3,9 @@
 		"name": "Hobo",
 		"image": "image path",
 		"pre-quest-dialogue": 
-			"@nHmm... what's this?\n
-			 @cMeow (Curious)\n
-			 @nA stray... how unfortunate.",
+			"@nHmm... what's this?\n@cMeow (Curious)\n@nA stray... how unfortunate.\nWell it seems we are both stuck in this alley.\n@cMeow (Sad)\n@nHow about this if you can find my key, I will help you find a family\n@cMeow (Excited)\n@nThen it's a deal! The last place I saw my key was near that dumpster.",
 		"during-quest-dialogue":
-			"@nGo get that key and then we can talk about finding you a family.",
+			"@nGo get that key and then we can talk about finding you a family, I think I left it somewhere around the dumpster",
 		"post-quest-dialogue":
 			"@nGood job! Now we can leave this alley!\n
 			 @cMeow (Short)\n

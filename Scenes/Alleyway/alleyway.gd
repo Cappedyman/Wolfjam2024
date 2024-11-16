@@ -28,6 +28,10 @@ func renderDialogueBox() -> void:
 	dialogue = dialogueBox.instantiate()
 	var cat = get_node("Cat")
 	dialogue.position = Vector2(cat.position.x - 300, cat.position.y)
+	
+	dialogue.setNpc("hobo") # assigns proper dialogues
+	dialogue.create_queue() # creates the output queue for the dialogue box
+	
 	add_child(dialogue)
 
 func _dialogue_finished():
