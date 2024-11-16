@@ -40,7 +40,7 @@ offset_bottom = 127.0
 color = Color(0.167575, 0.594729, 1, 1)
 
 [node name="PharmacyDoor" type="Area2D" parent="."]
-position = Vector2(296, 370)
+position = Vector2(298, 367)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PharmacyDoor"]
 position = Vector2(2, 68)
@@ -68,7 +68,7 @@ offset_bottom = 127.0
 color = Color(0.167575, 0.594729, 1, 1)
 
 [node name="FishDoor" type="Area2D" parent="."]
-position = Vector2(477, 370)
+position = Vector2(481, 369)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishDoor"]
 position = Vector2(2, 68)

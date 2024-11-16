@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://blyxfn0pimsr"]
+
+[node name="InteractIcon" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -21.0
+offset_top = -65.0
+offset_right = 19.0
+offset_bottom = 53.0
+color = Color(1, 0.96917, 0.195882, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -21.0
+offset_top = 65.0
+offset_right = 19.0
+offset_bottom = 105.0
+color = Color(1, 0.96917, 0.195882, 1)
+metadata/_edit_use_anchors_ = true
