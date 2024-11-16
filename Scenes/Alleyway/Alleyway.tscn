@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6qjn4i8m3453"]
+[gd_scene load_steps=6 format=3 uid="uid://c6qjn4i8m3453"]
 
 [ext_resource type="Script" path="res://Scenes/Alleyway/alleyway.gd" id="1_kmli6"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_lfaqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw7so"]
+size = Vector2(81.5, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy4os"]
 size = Vector2(58, 116)
@@ -11,6 +14,20 @@ size = Vector2(2314, 170)
 
 [node name="Alleyway" type="Node2D"]
 script = ExtResource("1_kmli6")
+
+[node name="Hobo" type="Area2D" parent="."]
+position = Vector2(511, 328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hobo"]
+position = Vector2(8, 97)
+shape = SubResource("RectangleShape2D_rw7so")
+
+[node name="ColorRect" type="ColorRect" parent="Hobo"]
+offset_left = -32.0
+offset_top = 25.0
+offset_right = 49.0
+offset_bottom = 171.0
+color = Color(1, 0.408258, 0.878451, 1)
 
 [node name="AlleywayDoorReverse" type="Area2D" parent="."]
 position = Vector2(104, 369)
@@ -54,5 +71,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Cat" parent="." instance=ExtResource("1_lfaqh")]
 position = Vector2(278, 441)
 
+[connection signal="body_entered" from="Hobo" to="." method="_on_hobo_body_entered"]
+[connection signal="body_exited" from="Hobo" to="." method="_on_hobo_body_exited"]
 [connection signal="body_entered" from="AlleywayDoorReverse" to="." method="_on_alleyway_door_reverse_body_entered"]
 [connection signal="body_exited" from="AlleywayDoorReverse" to="." method="_on_alleyway_door_reverse_body_exited"]

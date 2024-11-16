@@ -5,18 +5,30 @@ var canEnterAlleywayDoor: bool = false
 var canEnterPharmacyDoor: bool = false
 var canEnter711Door: bool = false
 
+@onready var Cat = get_node("Cat")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	
+	match LocationStack.peek():
+		"FishDoor":
+			Cat.position = Vector2(480, 440)
+			
+
+			
+	
+	print(LocationStack.peek())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if canEnterFishDoor and Input.is_action_just_pressed("Interact"):
+		LocationStack.push("FishDoor")
 		get_tree().change_scene_to_file("res://Scenes/FishStore/FishStore.tscn");
 		
 	if canEnterAlleywayDoor and Input.is_action_just_pressed("Interact"):
+		
 		get_tree().change_scene_to_file("res://Scenes/Alleyway/Alleyway.tscn");
 		
 	if canEnterPharmacyDoor and Input.is_action_just_pressed("Interact"):
