@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bygqklopp80j6"]
+[gd_scene load_steps=9 format=3 uid="uid://bygqklopp80j6"]
 
 [ext_resource type="Texture2D" uid="uid://cbng55mrgwl8j" path="res://Images/Inventory.png" id="1_07ipc"]
-[ext_resource type="Script" path="res://Scenes/Inventory/InvUi.gd" id="1_k2aq1"]
+[ext_resource type="Script" path="res://Scenes/Inventory/InvUI.gd" id="1_k2aq1"]
 [ext_resource type="PackedScene" uid="uid://rok0b4tbfjqx" path="res://Scenes/Inventory/InvSlot.tscn" id="2_7sb2p"]
-[ext_resource type="Texture2D" uid="uid://bqvswgubxtaq8" path="res://Images/InventoryTab.png" id="4_paott"]
-[ext_resource type="Texture2D" uid="uid://b2c22qv6nsanx" path="res://Images/InventoryXTab.png" id="5_8jqyh"]
-[ext_resource type="Texture2D" uid="uid://b0s7fbwedkm6u" path="res://Images/InventoryTabFocused.png" id="5_wk4nu"]
+[ext_resource type="Texture2D" uid="uid://di4rqi15od6mf" path="res://Images/InventoryTabHighlighted.png" id="4_paott"]
+[ext_resource type="Texture2D" uid="uid://c5nugsyqydlr3" path="res://Images/InventoryTab.png" id="5_wk4nu"]
+[ext_resource type="Texture2D" uid="uid://bheuh3wew3v0c" path="res://Images/XButton.png" id="6_88yfo"]
+[ext_resource type="Texture2D" uid="uid://cklsfkthuab0m" path="res://Images/XButtonPressed.png" id="7_jr7oj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_an31k"]
 
@@ -20,140 +21,150 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k2aq1")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="InventoryMasterBox" type="NinePatchRect" parent="."]
 z_index = 5
 material = SubResource("CanvasItemMaterial_an31k")
 layout_mode = 0
 offset_top = 15.0
 offset_right = 150.0
-offset_bottom = 135.0
+offset_bottom = 137.0
 texture = ExtResource("1_07ipc")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="ItemBoxes" type="GridContainer" parent="InventoryMasterBox"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 8.0
+offset_top = 10.0
 offset_right = 145.0
-offset_bottom = 112.0
+offset_bottom = 114.0
 columns = 4
 
-[node name="InvUiSlot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot2" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot3" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot4" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot5" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot6" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot7" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot8" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot9" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot10" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot10" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot11" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot11" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="InvUiSlot12" parent="NinePatchRect/GridContainer" instance=ExtResource("2_7sb2p")]
+[node name="InvUiSlot12" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_top = -1.0
-offset_right = 70.0
-offset_bottom = 59.0
-
-[node name="TextureButton" type="TextureButton" parent="Control"]
-z_index = 1
+[node name="QuestList" type="GridContainer" parent="InventoryMasterBox"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 68.5
-offset_bottom = 33.0
-texture_normal = ExtResource("4_paott")
-texture_focused = ExtResource("5_wk4nu")
-stretch_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 145.0
+offset_bottom = 114.0
 
-[node name="Label" type="Label" parent="Control"]
-z_index = 2
-layout_mode = 0
-offset_left = 6.0
-offset_right = 66.0
-offset_bottom = 17.0
-theme_override_font_sizes/font_size = 12
-text = "Inventory"
-
-[node name="Control2" type="Control" parent="."]
+[node name="QuestButton" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 69.0
-offset_top = -1.0
-offset_right = 139.0
-offset_bottom = 59.0
+offset_left = 68.0
+offset_right = 130.5
+offset_bottom = 15.0
 
-[node name="TextureButton" type="TextureButton" parent="Control2"]
+[node name="questButton" type="TextureButton" parent="QuestButton"]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 1.0
-offset_right = 63.0
-offset_bottom = 33.0
-texture_normal = ExtResource("4_paott")
-texture_focused = ExtResource("5_wk4nu")
-stretch_mode = 0
+offset_left = -3.0
+offset_right = 62.0
+offset_bottom = 32.0
+toggle_mode = true
+texture_normal = ExtResource("5_wk4nu")
+texture_pressed = ExtResource("4_paott")
 
-[node name="Label" type="Label" parent="Control2/TextureButton"]
+[node name="QuestsLabel" type="Label" parent="QuestButton"]
 z_index = 2
 layout_mode = 0
-offset_left = 9.0
+offset_left = 7.0
 offset_top = -1.0
-offset_right = 50.0
+offset_right = 48.0
 offset_bottom = 16.0
 theme_override_font_sizes/font_size = 12
 text = "Quests"
 
-[node name="Control3" type="Control" parent="."]
+[node name="CloseButton" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 134.0
-offset_top = -1.0
-offset_right = 149.0
-offset_bottom = 24.0
+offset_left = 136.0
+offset_right = 151.0
+offset_bottom = 25.0
 
-[node name="TextureButton" type="TextureButton" parent="Control3"]
-z_index = 1
+[node name="closeButton" type="TextureButton" parent="CloseButton"]
+z_index = -1
 layout_mode = 0
-offset_left = -4.0
-offset_top = 2.0
-offset_right = 16.0
-offset_bottom = 22.0
-texture_normal = ExtResource("5_8jqyh")
+offset_left = -7.0
+offset_right = 13.0
+offset_bottom = 20.0
+texture_normal = ExtResource("6_88yfo")
+texture_pressed = ExtResource("7_jr7oj")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Control3"]
+[node name="x" type="Label" parent="CloseButton"]
 z_index = 2
 layout_mode = 0
-offset_left = 4.0
-offset_right = 14.0
-offset_bottom = 23.0
+offset_top = -2.0
+offset_right = 10.0
+offset_bottom = 21.0
 theme_override_font_sizes/font_size = 12
 text = "x"
+
+[node name="InventoryButton" type="Control" parent="."]
+z_index = 1
+anchors_preset = 0
+offset_right = 70.0
+offset_bottom = 60.0
+
+[node name="inventoryButton" type="TextureButton" parent="InventoryButton"]
+z_index = 1
+layout_mode = 1
+offset_left = 1.0
+offset_right = 66.0
+offset_bottom = 32.0
+toggle_mode = true
+texture_normal = ExtResource("5_wk4nu")
+texture_pressed = ExtResource("4_paott")
+
+[node name="InventoryLabel" type="Label" parent="InventoryButton"]
+z_index = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 70.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 12
+text = "Inventory"
+
+[connection signal="focus_entered" from="QuestButton/questButton" to="." method="_on_quest_button_focus_entered"]
+[connection signal="focus_exited" from="QuestButton/questButton" to="." method="_on_quest_button_focus_exited"]
+[connection signal="pressed" from="QuestButton/questButton" to="." method="_on_quest_button_pressed"]
+[connection signal="button_up" from="CloseButton/closeButton" to="." method="_on_close_button_button_up"]
+[connection signal="pressed" from="InventoryButton/inventoryButton" to="." method="_on_inventory_button_pressed"]

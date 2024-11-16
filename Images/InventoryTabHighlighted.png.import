@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0s7fbwedkm6u"
-path="res://.godot/imported/InventoryTabFocused.png-e61b4f1f12518ce9ff14e2dbb0971fd8.ctex"
+uid="uid://di4rqi15od6mf"
+path="res://.godot/imported/InventoryTabHighlighted.png-3b6d83f45960eb0269fe81ba69cfab97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/InventoryTabFocused.png"
-dest_files=["res://.godot/imported/InventoryTabFocused.png-e61b4f1f12518ce9ff14e2dbb0971fd8.ctex"]
+source_file="res://Images/InventoryTabHighlighted.png"
+dest_files=["res://.godot/imported/InventoryTabHighlighted.png-3b6d83f45960eb0269fe81ba69cfab97.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2c22qv6nsanx"
-path="res://.godot/imported/InventoryXTab.png-8fca13826d5859b3ea60bdfedeea6500.ctex"
+uid="uid://cklsfkthuab0m"
+path="res://.godot/imported/XButtonPressed.png-40cac0b8f817bd578afe2ef1f0d2d392.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/InventoryXTab.png"
-dest_files=["res://.godot/imported/InventoryXTab.png-8fca13826d5859b3ea60bdfedeea6500.ctex"]
+source_file="res://Images/XButtonPressed.png"
+dest_files=["res://.godot/imported/XButtonPressed.png-40cac0b8f817bd578afe2ef1f0d2d392.ctex"]
 
 [params]
 
