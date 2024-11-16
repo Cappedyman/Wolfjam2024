@@ -9,11 +9,21 @@ var dialogueData = {}
 #stores mapping for dialogue name to id
 var dialogueMapping = {
 	"hobo": "0",
-	"fish-guy": "1"
+	"fish-guy": "1",
+	"couple": "2",
+	"depressed-man": "3",
+	"cashier": "4",
+	"pharmasist": "5",
+	"fleurist": "6"
 }
 
+#stores mapping for item name to id
 var itemMapping = {
-	"key": "0"
+	"key": "0",
+	"fish": "1",
+	"rose": "2",
+	"id": "3",
+	"antidepressants": "4"
 }
 
 var dialogueDataFilePath = "res://Data/Dialogue/dialogue.json"
@@ -40,8 +50,15 @@ func get_dialogue_id_by_name(name: String) -> String:
 	else:
 		return "null"
 
-func get_item_id_by_name(name: String):
+func get_item_id_by_name(name: String) -> String:
 	if name.to_lower() in itemMapping:
 		return itemMapping[name.to_lower()]
 	else:
 		return "null"
+
+func get_item_dict_by_id(id: String) -> Dictionary:
+	if id not in itemData:
+		print(id + " is not a valid item id")
+		return {null: null}
+	else:
+		return {}
