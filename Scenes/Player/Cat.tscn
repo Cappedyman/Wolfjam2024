@@ -101,25 +101,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kjfn"]
-size = Vector2(70.25, 67.75)
+size = Vector2(148, 167.875)
 
 [node name="Cat" type="CharacterBody2D"]
 position = Vector2(542, 444)
 script = ExtResource("1_i5qbq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-20.2031, -9.56252)
-scale = Vector2(0.113797, 0.122396)
+position = Vector2(62.5, -73.0625)
+scale = Vector2(0.1965, 0.228229)
 sprite_frames = SubResource("SpriteFrames_2nh46")
-animation = &"JumpRight"
+animation = &"RunLeft"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-22, 8)
+position = Vector2(50, -65)
 shape = SubResource("RectangleShape2D_2kjfn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(9, -63)
-zoom = Vector2(2, 2)
 
 [node name="InvUi" parent="." instance=ExtResource("2_rksvo")]
 visible = false

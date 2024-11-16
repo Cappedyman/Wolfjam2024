@@ -4,7 +4,7 @@ var speed = 350
 var acceleration = 1000
 var friction = 3000 
 var airFriction = 1000
-var jumpVelocity = -400
+var jumpVelocity = -600
 
 var facingRight: bool = true
 
