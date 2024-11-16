@@ -14,49 +14,73 @@
 	"1": {
 		"name": "Fish-Guy",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@nOh jeez, what am I gonna do!\nI spent all this time fishing and I have nothing to show my family...\n@cMeow?\n@nWhat...?\nOH HEY, YOU'RE A CAT!\nThat means you know where to get fish right?!\n@cMeow meow meow meow meow meow\n@nYeah yeah whatever, anyway if you happen to find a fish can you bring it to me please?",
+		"during-quest-dialogue": 
+			"@nCome on, it's almost dinnertime have you found that fish yet?\nI would go to the fish store but I don't have any money",
+		"post-quest-dialogue": 
+			"@cMeow!\n@nWait is this...?\nYes! Now I can go home and make dinner for my family!\n@cMeeeeeeeeow :3\n@nExactly!",
+		"residual-dialogue": 
+			"@nWait... How can I understand you?\n@cMeow >:3"
 	},
 	"2": {
 		"name": "Couple",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@nDangit! My partner's favorite flower is a red rose, but the fleurist is all out...\nI give up\n@cMeow?\n@nWhat was that? You're willing to help me!\n@cMeow :3\n@nThank you so much!",
+		"during-quest-dialogue": 
+			"@nThe fleurist is just down the road if you wanna check, but she already ran out of red roses",
+		"post-quest-dialogue": 
+			"@cMeeeooooooow :3\n@nThe rose! They'll be estatic, thank you very much stray cat!\n@cMe-meow!",
+		"residual-dialogue": 
+			"@cMeow?\n@nHuh? No I haven't given it to her yet, I'm waiting for our reservation at Caffe Italia\n@cMeow >:3\n@nOf course you don't like Italian :)"
 	},
 	"3": {
 		"name": "Depressed-Man",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@nSTUPID STUPID STUPID\nHow could I lose my ID, I really need my prescription\n@cMeow?\n@n...\n@c(He pays no attention to you)",
+		"during-quest-dialogue": 
+			"@nWhere did I go today...\nI woke up...\nThe bank...\nSlurpee...\nUgh where can my ID be!",
+		"post-quest-dialogue": 
+			"@cMeow\n(He ignores you)\nMeow!\n(He stil ignores you)\nMEEEEEEEEEEEEEOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWWWWWWWW\n@nOH MY GOD WHAT!\noh...\nI'm sorry... thank you for getting my ID and prescription\n@c:3\n@n:')",
+		"residual-dialogue": 
+			"@nAh\nAHH\nACHOOOO\nOf course I have to be allergic to cats..."
 	},
 	"4": {
 		"name": "Cashier",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@nWelcome to 14/22, how can I help you?\n@cMeow\n@nMhmm",
+		"during-quest-dialogue": 
+			"@nWelcome to 14/22, how can I help you?\n@cMeow\n@nAn ID? And how do I know it's yours?\n@cMeow\n@nI don't get paid enough for this.",
+		"post-quest-dialogue": 
+			"@nYou better not get me fired\n@c:3",
+		"residual-dialogue": 
+			"@nYou better not get me fired\n@c:3"
 	},
 	"5": {
 		"name": "Pharmasist",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@cMeow\n@nYeah, I'm gonna need to see an ID first\n@c>:3",
+		"during-quest-dialogue": 
+			"@cMeow\n@nUh huh, and this is a pick up for the anti-depressants\n@c:3\n@nYou're on anti-depresants?\n@c:3\n@n200mg?\n@cMeow\n@nI definitely need to up my dose...",
+		"post-quest-dialogue": 
+			"@nI definitely need to up my dose...",
+		"residual-dialogue": 
+			"@nI definitely need to up my dose..."
 	},
 	"6": {
 		"name": "Fleurist",
 		"image": "image path",
-		"pre-quest-dialogue": "",
-		"during-quest-dialogue": "",
-		"post-quest-dialogue": "",
-		"residual-dialogue": ""
+		"pre-quest-dialogue": 
+			"@nOh ho ho, aren't you a cute one\n@cMeow :3",
+		"during-quest-dialogue": 
+			"@cMeow?\n@nWell we don't have any roses here, but I do smell some nearby\n@c*sniff sniff* Meow!",
+		"post-quest-dialogue": 
+			"@nI'm glad you found that rose mon amie\n@c:3",
+		"residual-dialogue": 
+			"@nSo where did you learn how to talk?\n@cMeow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow\n@nVery intruiging indeed"
 	}
 }
