@@ -7,16 +7,7 @@
 		"during-quest-dialogue":
 			"@nGo get that key and then we can talk about finding you a family, I think I left it somewhere around the dumpster",
 		"post-quest-dialogue":
-			"@nGood job! Now we can leave this alley!\n
-			 @cMeow (Short)\n
-			 @n...What?\n
-			 @cMeow (Short)\n
-			 @nAh yes a family, well you don't actually need one now do you?\n
-			 @cMeow (Angry)\n
-			 @nFine fine, however, there's one condition.\n
-			 You need to make three friends before I can find you a family\n
-			 @cMeow (Annoyed)\n
-			 @nIt can't be that hard can it?",
+			"@nGood job! Now we can leave this alley!\n@cMeow (Short)\n@n...What?\n@cMeow (Short)\n@nAh yes a family, well you don't actually need one now do you?\n@cMeow (Angry)\n@nFine fine, however, there's one condition.\nYou need to make three friends before I can find you a family\n@cMeow (Annoyed)\n@nIt can't be that hard can it?",
 		"residual-dialogue":
 			"@nGo on now, you still need to find friends!"
 	},
