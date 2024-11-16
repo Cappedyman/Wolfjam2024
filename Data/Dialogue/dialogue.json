@@ -1,5 +1,5 @@
 {
-	"Hobo": {
+	"0": {
 		"name": "Hobo",
 		"dialogue-image": "image path",
 		"pre-quest-dialogue": 
@@ -17,8 +17,8 @@
 		"residual-dialogue":
 			"Go on now, you still need to find friends!"
 	},
-	"Fish-Guy": {
-		"name": "null",
+	"1": {
+		"name": "Fish-Guy",
 		"dialogue-image": "image path",
 		"pre-quest-dialogue": "",
 		"during-quest-dialogue": "",
