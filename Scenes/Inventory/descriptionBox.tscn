@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6dyfrnsrlmso"]
+[gd_scene load_steps=2 format=3 uid="uid://ccmvmb0k07rcc"]
 
-[ext_resource type="Texture2D" uid="uid://ddu14ntmnewfk" path="res://Images/dialougeBox.png" id="1_41h6h"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_301wk"]
+load_path = "res://.godot/imported/dialougeBox.png-1c6cf62094ac2aa9331689ff52fe52be.ctex"
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -18,5 +19,5 @@ offset_left = 3.0
 offset_top = -30.0
 offset_right = 63.0
 offset_bottom = 10.0
-texture = ExtResource("1_41h6h")
+texture = SubResource("CompressedTexture2D_301wk")
 flip_v = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bygqklopp80j6"]
+[gd_scene load_steps=11 format=3 uid="uid://bygqklopp80j6"]
 
 [ext_resource type="Texture2D" uid="uid://cbng55mrgwl8j" path="res://Images/Inventory.png" id="1_07ipc"]
 [ext_resource type="Script" path="res://Scenes/Inventory/InvUI.gd" id="1_k2aq1"]
 [ext_resource type="PackedScene" uid="uid://rok0b4tbfjqx" path="res://Scenes/Inventory/InvSlot.tscn" id="2_7sb2p"]
+[ext_resource type="Texture2D" uid="uid://cv1sch21a645m" path="res://Images/picturebar.png" id="4_nawss"]
 [ext_resource type="Texture2D" uid="uid://di4rqi15od6mf" path="res://Images/InventoryTabHighlighted.png" id="4_paott"]
+[ext_resource type="Texture2D" uid="uid://ccdj2wg18xshy" path="res://Images/camera.png" id="5_vh1sl"]
 [ext_resource type="Texture2D" uid="uid://c5nugsyqydlr3" path="res://Images/InventoryTab.png" id="5_wk4nu"]
 [ext_resource type="Texture2D" uid="uid://bheuh3wew3v0c" path="res://Images/XButton.png" id="6_88yfo"]
 [ext_resource type="Texture2D" uid="uid://cklsfkthuab0m" path="res://Images/XButtonPressed.png" id="7_jr7oj"]
@@ -28,7 +30,7 @@ material = SubResource("CanvasItemMaterial_an31k")
 layout_mode = 0
 offset_top = 15.0
 offset_right = 150.0
-offset_bottom = 137.0
+offset_bottom = 135.0
 mouse_filter = 1
 texture = ExtResource("1_07ipc")
 patch_margin_left = 6
@@ -89,6 +91,7 @@ offset_right = 145.0
 offset_bottom = 115.0
 
 [node name="Panel" type="Panel" parent="InventoryMasterBox"]
+self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 layout_mode = 0
 offset_left = 150.0
@@ -98,8 +101,31 @@ offset_bottom = 120.0
 [node name="TextureRect" type="TextureRect" parent="InventoryMasterBox/Panel"]
 custom_minimum_size = Vector2(40, 120)
 layout_mode = 0
-offset_right = 40.0
+offset_right = 45.0
 offset_bottom = 120.0
+texture = ExtResource("4_nawss")
+
+[node name="Panel2" type="Panel" parent="InventoryMasterBox"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = -2
+custom_minimum_size = Vector2(45, 120)
+offset_left = -45.0
+offset_bottom = 120.0
+
+[node name="TextureRect" type="TextureRect" parent="InventoryMasterBox/Panel2"]
+custom_minimum_size = Vector2(40, 120)
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 120.0
+texture = ExtResource("4_nawss")
+
+[node name="TextureRect" type="TextureRect" parent="InventoryMasterBox/Panel2/TextureRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_vh1sl")
 
 [node name="QuestButton" type="Control" parent="."]
 layout_mode = 3
