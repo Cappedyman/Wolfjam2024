@@ -57,7 +57,7 @@ position = Vector2(0, 113)
 shape = SubResource("RectangleShape2D_3bv2v")
 
 [node name="AlleywayDoor" type="Area2D" parent="."]
-position = Vector2(2966, 264)
+position = Vector2(2966, 266)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayDoor"]
 position = Vector2(-3, 122)
@@ -71,7 +71,7 @@ position = Vector2(-0.5, 103)
 shape = SubResource("RectangleShape2D_3bv2v")
 
 [node name="Cat" parent="." instance=ExtResource("1_sau32")]
-position = Vector2(2919, 432)
+position = Vector2(2927, 448)
 
 [node name="Rose" type="Area2D" parent="."]
 position = Vector2(184, 473)
