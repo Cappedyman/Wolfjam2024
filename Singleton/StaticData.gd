@@ -62,3 +62,10 @@ func get_item_dict_by_id(id: String) -> Dictionary:
 		return {null: null}
 	else:
 		return itemData[id]
+
+func get_dialogue_dict_by_id(id: String) -> Dictionary:
+	if id not in dialogueData:
+		print(id + " is not a valid item id")
+		return {null: null}
+	else:
+		return dialogueData[id]

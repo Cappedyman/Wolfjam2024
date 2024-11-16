@@ -1,7 +1,7 @@
 {
 	"0": {
 		"name": "Rusted Key",
-		"image": "image path",
+		"image": "res://Images/InventorySlot.png",
 		"description": "Brown, rusted key. Very stinky :("
 	},
 	"1": {

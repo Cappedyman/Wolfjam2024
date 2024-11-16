@@ -12,6 +12,20 @@ size = Vector2(2314, 170)
 [node name="FishStore" type="Node2D"]
 script = ExtResource("1_3ws4g")
 
+[node name="FreezerDoor" type="Area2D" parent="."]
+position = Vector2(507, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FreezerDoor"]
+position = Vector2(2, 68)
+shape = SubResource("RectangleShape2D_d3n7x")
+
+[node name="ColorRect" type="ColorRect" parent="FreezerDoor"]
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 127.0
+color = Color(0.167575, 0.594729, 1, 1)
+
 [node name="FishDoorReverse" type="Area2D" parent="."]
 position = Vector2(85, 368)
 
@@ -33,17 +47,17 @@ position = Vector2(622, 581)
 shape = SubResource("RectangleShape2D_nxomp")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -532.0
-offset_top = 498.0
-offset_right = 1780.0
-offset_bottom = 990.0
+offset_left = -547.0
+offset_top = 500.0
+offset_right = 1765.0
+offset_bottom = 992.0
 color = Color(1, 0.653245, 0.783397, 1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 169.0
-offset_top = 183.0
-offset_right = 266.0
-offset_bottom = 252.0
+offset_left = 39.0
+offset_top = 226.0
+offset_right = 136.0
+offset_bottom = 295.0
 theme_override_font_sizes/font_size = 50
 text = "Fish
 "
@@ -51,5 +65,7 @@ text = "Fish
 [node name="Cat" parent="." instance=ExtResource("1_7iwxt")]
 position = Vector2(190, 391)
 
+[connection signal="body_entered" from="FreezerDoor" to="." method="_on_freezer_door_body_entered"]
+[connection signal="body_exited" from="FreezerDoor" to="." method="_on_freezer_door_body_exited"]
 [connection signal="body_entered" from="FishDoorReverse" to="." method="_on_fish_door_reverse_body_entered"]
 [connection signal="body_exited" from="FishDoorReverse" to="." method="_on_fish_door_reverse_body_exited"]

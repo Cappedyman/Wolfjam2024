@@ -2,6 +2,11 @@ extends Node2D
 
 var canEnterAlleywayDoor: bool = false
 var canTalkToHobo: bool = false
+var dialogueBoxOpen: bool = false
+
+var dialogue
+
+@onready var dialogueBox = load("res://Scenes/Dialogue/dialogue.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,12 +19,21 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/Street/Street.tscn");
 		
 	if canTalkToHobo and Input.is_action_just_pressed("Interact"):
-		var mystring: String = StaticData.get_dialogue_id_by_name("hobo")
-		print(mystring)
-		
-		print(StaticData.dialogueData[mystring]["name"])
+		get_tree().paused = true
+		renderDialogueBox()
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
+func renderDialogueBox() -> void:
+	dialogue = dialogueBox.instantiate()
+	var cat = get_node("Cat")
+	dialogue.position = Vector2(cat.position.x - 300, cat.position.y)
+	add_child(dialogue)
+
+func _dialogue_finished():
+	dialogue.queue_free()
+	dialogueBoxOpen = false
+	get_tree().paused = false
 
 func _on_alleyway_door_reverse_body_entered(body: Node2D) -> void:
 	if body.name == "Cat":
@@ -29,9 +43,7 @@ func _on_alleyway_door_reverse_body_entered(body: Node2D) -> void:
 func _on_alleyway_door_reverse_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 			canEnterAlleywayDoor = false
-
-
-
+			
 
 func _on_hobo_body_entered(body: Node2D) -> void:
 	if body.name == "Cat":

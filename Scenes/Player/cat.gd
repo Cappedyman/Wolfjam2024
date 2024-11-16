@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 var speed = 350  
-var acceleration = 800  
+var acceleration = 1000
 var friction = 3000 
+var airFriction = 1000
 var jumpVelocity = -400
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +26,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = max(0, velocity.x - friction * delta)
 		elif velocity.x < 0 and is_on_floor():
 			velocity.x = min(0, velocity.x + friction * delta)
+			
+		if velocity.x > 0 and !is_on_floor():
+			velocity.x = max(0, velocity.x - airFriction * delta)
+		elif velocity.x < 0 and !is_on_floor():
+			velocity.x = min(0, velocity.x + airFriction * delta)
 
 	# Clamp the velocity to the max speed.
 	velocity.x = clamp(velocity.x, -speed, speed)

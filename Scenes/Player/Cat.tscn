@@ -23,6 +23,7 @@ shape = SubResource("RectangleShape2D_2kjfn")
 position = Vector2(6, -108)
 
 [node name="InvUi" parent="." instance=ExtResource("2_rksvo")]
+visible = false
 offset_left = -338.0
 offset_top = -422.0
 offset_right = -338.0
