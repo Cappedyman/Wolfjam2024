@@ -1,15 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4h0oiq4mayk3"]
+[gd_scene load_steps=4 format=3 uid="uid://c4h0oiq4mayk3"]
 
 [ext_resource type="Script" path="res://Scenes/Main Menu/main_menu.gd" id="1_sdya5"]
+[ext_resource type="Texture2D" uid="uid://sf6d7dy8fpku" path="res://Your paragraph text.png" id="2_k2yib"]
+[ext_resource type="FontFile" uid="uid://b2dmq8n1oat1n" path="res://Fonts/pigment DEMO.otf" id="3_ollms"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_sdya5")
 
+[node name="YourParagraphText" type="Sprite2D" parent="."]
+modulate = Color(0.683294, 0.683294, 0.683294, 1)
+position = Vector2(578.5, 322)
+scale = Vector2(0.604688, 0.601852)
+texture = ExtResource("2_k2yib")
+
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 428.0
-offset_top = 368.0
-offset_right = 688.0
-offset_bottom = 453.0
+offset_left = 465.0
+offset_top = 399.0
+offset_right = 725.0
+offset_bottom = 484.0
 text = "Play"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.364227, 0.364227, 0.364227, 1)
+self_modulate = Color(0.431373, 0.431373, 0.431373, 0.556863)
+offset_left = 153.0
+offset_top = 52.0
+offset_right = 1034.0
+offset_bottom = 287.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 189.0
+offset_top = 110.0
+offset_right = 1007.0
+offset_bottom = 261.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ollms")
+theme_override_font_sizes/font_size = 150
+text = "Cat-nnections"
+uppercase = true
 
 [connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

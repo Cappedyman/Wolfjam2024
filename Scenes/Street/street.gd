@@ -120,3 +120,10 @@ func _on_door_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 		canEnter711Door = false
 		hideInteractIcon()
+
+
+
+func _on_rose_body_entered(body: Node2D) -> void:
+	StaticInventory.add_item("2")
+	$Rose.queue_free()
+	print(StaticInventory.getInv())
