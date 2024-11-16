@@ -1,75 +1,96 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6qjn4i8m3453"]
+[gd_scene load_steps=11 format=3 uid="uid://c6qjn4i8m3453"]
 
 [ext_resource type="Script" path="res://Scenes/Alleyway/alleyway.gd" id="1_kmli6"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_lfaqh"]
+[ext_resource type="Texture2D" uid="uid://ca7vusyqyjan0" path="res://Art/alleyintro.png" id="2_y3awx"]
+[ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_dpb6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw7so"]
 size = Vector2(81.5, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy4os"]
-size = Vector2(58, 116)
+size = Vector2(142, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5rac"]
 size = Vector2(2314, 170)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfpqc"]
+size = Vector2(362, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddqrp"]
+size = Vector2(120.5, 81.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1ej4"]
+size = Vector2(82, 122)
+
 [node name="Alleyway" type="Node2D"]
+position = Vector2(-9, 43)
 script = ExtResource("1_kmli6")
 
+[node name="Alleyintro" type="Sprite2D" parent="."]
+position = Vector2(582.25, 321.25)
+scale = Vector2(0.650833, 0.612917)
+texture = ExtResource("2_y3awx")
+
 [node name="Hobo" type="Area2D" parent="."]
-position = Vector2(511, 328)
+position = Vector2(589, 264)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hobo"]
-position = Vector2(8, 97)
+position = Vector2(-190, 73)
 shape = SubResource("RectangleShape2D_rw7so")
 
 [node name="ColorRect" type="ColorRect" parent="Hobo"]
-offset_left = -32.0
-offset_top = 25.0
-offset_right = 49.0
-offset_bottom = 171.0
+offset_left = -231.0
+offset_top = -1.0
+offset_right = -150.0
+offset_bottom = 145.0
 color = Color(1, 0.408258, 0.878451, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="AlleywayDoorReverse" type="Area2D" parent="."]
-position = Vector2(104, 369)
+position = Vector2(175, 181)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayDoorReverse"]
-position = Vector2(2, 68)
+position = Vector2(2, 118)
 shape = SubResource("RectangleShape2D_jy4os")
-
-[node name="ColorRect" type="ColorRect" parent="AlleywayDoorReverse"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(622, 581)
+position = Vector2(475, 511)
 shape = SubResource("RectangleShape2D_t5rac")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -532.0
-offset_top = 496.0
-offset_right = 1780.0
-offset_bottom = 988.0
-color = Color(1, 0.653245, 0.783397, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 152.0
-offset_top = 132.0
-offset_right = 365.0
-offset_bottom = 201.0
-theme_override_font_sizes/font_size = 50
-text = "Alleyway
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="Cat" parent="." instance=ExtResource("1_lfaqh")]
-position = Vector2(278, 441)
+position = Vector2(131, 385)
+
+[node name="box2" type="StaticBody2D" parent="."]
+position = Vector2(648, 216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box2"]
+position = Vector2(148, 39.5)
+shape = SubResource("RectangleShape2D_cfpqc")
+one_way_collision = true
+
+[node name="box" type="StaticBody2D" parent="."]
+position = Vector2(1061, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="box"]
+position = Vector2(23.75, 49.75)
+shape = SubResource("RectangleShape2D_ddqrp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(517, 278)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(27, 61)
+shape = SubResource("RectangleShape2D_g1ej4")
+
+[node name="InvUi" parent="." instance=ExtResource("4_dpb6b")]
+offset_left = 307.0
+offset_top = 6.0
+offset_right = 307.0
+offset_bottom = 6.0
+scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="Hobo" to="." method="_on_hobo_body_entered"]
 [connection signal="body_exited" from="Hobo" to="." method="_on_hobo_body_exited"]

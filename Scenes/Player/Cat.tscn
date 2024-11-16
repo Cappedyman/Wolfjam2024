@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://qy2h6hipkt5t"]
+[gd_scene load_steps=20 format=3 uid="uid://qy2h6hipkt5t"]
 
 [ext_resource type="Script" path="res://Scenes/Player/cat.gd" id="1_i5qbq"]
 [ext_resource type="Texture2D" uid="uid://dr33t0dhfsok6" path="res://Art/IdleLeft/frame0000.png" id="2_jq5d3"]
-[ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="2_rksvo"]
 [ext_resource type="Texture2D" uid="uid://dc1s2uyh0fdig" path="res://Art/IdleLeft/frame0002.png" id="3_mu40x"]
 [ext_resource type="Texture2D" uid="uid://cmcprst8gl70x" path="res://Art/IdleRight/frame0000.png" id="6_e4q3q"]
 [ext_resource type="Texture2D" uid="uid://b1h0d88p5td7w" path="res://Art/IdleRight/frame0002.png" id="7_2xrr1"]
@@ -116,16 +115,5 @@ animation = &"RunLeft"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(50, -65)
 shape = SubResource("RectangleShape2D_2kjfn")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(9, -63)
-
-[node name="InvUi" parent="." instance=ExtResource("2_rksvo")]
-visible = false
-offset_left = -338.0
-offset_top = -422.0
-offset_right = -338.0
-offset_bottom = -422.0
-scale = Vector2(4.5, 4.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

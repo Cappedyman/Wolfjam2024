@@ -216,6 +216,7 @@ theme_override_font_sizes/font_size = 200
 text = "Quests:"
 
 [node name="Label2" type="Label" parent="InventoryMasterBox/QuestMenu"]
+layout_mode = 0
 offset_left = 130.0
 offset_top = -7.0
 offset_right = 490.0
