@@ -10,6 +10,16 @@ var dialogueDict = {}
 
 var outputQueue = []
 
+var init: bool = true # tells us if we are in init
+
+func _process(_delta: float) -> void:
+	if not init: # if we are out of initialization
+		pass
+	
+	
+func setSpeaker(info: Dictionary) -> void: # Changes speakers name and Photo
+	_name.text = info["name"]
+
 func setNpc(name: String) -> void:
 	var npcID = StaticData.get_dialogue_id_by_name(name)
 	dialogueDict = StaticData.get_dialogue_dict_by_id(npcID)
@@ -25,6 +35,7 @@ func create_queue() -> void:
 			outputQueue = lex(dialogueDict["post-quest-dialogue"])
 		3:
 			outputQueue = lex(dialogueDict["residual-dialogue"])
+	init = false # end dialogue initizilation
 
 # lex build's an ouput queue to tell the dialogue box what to do next
 func lex(dialogue: String) -> Array:

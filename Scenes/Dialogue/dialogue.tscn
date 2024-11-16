@@ -54,7 +54,7 @@ offset_top = 27.0
 offset_right = 667.0
 offset_bottom = 164.0
 
-[node name="Button" type="Button" parent="Box"]
+[node name="Continue" type="Button" parent="Box"]
 layout_mode = 0
 offset_left = 616.6
 offset_top = 140.432
