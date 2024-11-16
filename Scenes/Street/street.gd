@@ -76,6 +76,20 @@ func _process(delta: float) -> void:
 			LocationStack.push("711Door")
 			get_tree().change_scene_to_file("res://Scenes/711/711.tscn")
 
+	if canTalkToFishMonger and Input.is_action_just_pressed("Interact"):
+		pass
+			
+	if canTalkToFlowerLady and Input.is_action_just_pressed("Interact"):
+		pass
+		
+	if canTalkToHopelessRomantic and Input.is_action_just_pressed("Interact"):
+		pass
+		
+	if canTalkToDepressedNick and Input.is_action_just_pressed("Interact"):
+		pass
+
+
+
 func showInteractIcon() -> void:
 	interactIcon.visible = true
 
