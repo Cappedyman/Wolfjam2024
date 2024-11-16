@@ -13,3 +13,9 @@ func add_item(itemID) -> void:
 
 func getInv() -> Array:
 	return inventory
+
+func checkForID(ID: String):
+	if ID in self.inventory:
+		return true
+	else:
+		return false

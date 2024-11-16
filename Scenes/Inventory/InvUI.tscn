@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bygqklopp80j6"]
+[gd_scene load_steps=14 format=3 uid="uid://bygqklopp80j6"]
 
 [ext_resource type="Texture2D" uid="uid://cbng55mrgwl8j" path="res://Images/Inventory.png" id="1_07ipc"]
 [ext_resource type="Script" path="res://Scenes/Inventory/InvUI.gd" id="1_k2aq1"]
 [ext_resource type="PackedScene" uid="uid://rok0b4tbfjqx" path="res://Scenes/Inventory/InvSlot.tscn" id="2_7sb2p"]
+[ext_resource type="Texture2D" uid="uid://dvxsdutkqfty6" path="res://Images/LockedQuest.png" id="4_c7ax4"]
 [ext_resource type="Texture2D" uid="uid://cv1sch21a645m" path="res://Images/picturebar.png" id="4_nawss"]
 [ext_resource type="Texture2D" uid="uid://di4rqi15od6mf" path="res://Images/InventoryTabHighlighted.png" id="4_paott"]
 [ext_resource type="Texture2D" uid="uid://ccdj2wg18xshy" path="res://Images/camera.png" id="5_vh1sl"]
@@ -11,6 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cklsfkthuab0m" path="res://Images/XButtonPressed.png" id="7_jr7oj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_an31k"]
+
+[sub_resource type="Theme" id="Theme_67x37"]
+
+[sub_resource type="FontVariation" id="FontVariation_adjwa"]
+variation_face_index = 52
+variation_embolden = 0.62
+spacing_glyph = 70
 
 [node name="InvUi" type="Control"]
 layout_mode = 3
@@ -39,6 +47,7 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="ItemBoxes" type="GridContainer" parent="InventoryMasterBox"]
+visible = false
 z_index = 10
 layout_mode = 0
 offset_left = 5.0
@@ -90,6 +99,12 @@ offset_top = 9.0
 offset_right = 145.0
 offset_bottom = 115.0
 
+[node name="TextureRect" type="TextureRect" parent="InventoryMasterBox/QuestList"]
+custom_minimum_size = Vector2(140, 20)
+layout_mode = 2
+theme = SubResource("Theme_67x37")
+texture = ExtResource("4_c7ax4")
+
 [node name="Panel" type="Panel" parent="InventoryMasterBox"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -2
@@ -105,10 +120,48 @@ offset_right = 45.0
 offset_bottom = 120.0
 texture = ExtResource("4_nawss")
 
+[node name="Icon Logo" type="TextureRect" parent="InventoryMasterBox/Panel/TextureRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="InventoryMasterBox/Panel/TextureRect"]
+custom_minimum_size = Vector2(35, 10)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 686.0
+offset_bottom = 203.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 121
+text = "Item Name"
+
+[node name="Label2" type="Label" parent="InventoryMasterBox/Panel/TextureRect"]
+custom_minimum_size = Vector2(12500, 6000)
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.0
+offset_top = 45.0
+offset_right = 12504.0
+offset_bottom = 6045.0
+scale = Vector2(0.00783795, 0.0123571)
+theme_override_constants/line_spacing = 1
+theme_override_fonts/font = SubResource("FontVariation_adjwa")
+theme_override_font_sizes/font_size = 600
+text = "Item Description this works but i 
+am not sure how descriptions work?"
+autowrap_mode = 3
+visible_characters = -4
+visible_ratio = -0.0625
+
 [node name="Panel2" type="Panel" parent="InventoryMasterBox"]
 self_modulate = Color(1, 1, 1, 0)
 z_index = -2
 custom_minimum_size = Vector2(45, 120)
+layout_mode = 0
 offset_left = -45.0
 offset_bottom = 120.0
 
@@ -148,11 +201,12 @@ ignore_texture_size = true
 [node name="QuestsLabel" type="Label" parent="QuestButton"]
 z_index = 2
 layout_mode = 0
-offset_left = 7.0
+offset_left = 8.0
 offset_top = -1.0
-offset_right = 48.0
-offset_bottom = 16.0
-theme_override_font_sizes/font_size = 12
+offset_right = 768.0
+offset_bottom = 308.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 226
 text = "Quests"
 
 [node name="CloseButton" type="Control" parent="."]
@@ -167,6 +221,7 @@ z_index = -1
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
+scale = Vector2(1.03705, 1.37661)
 texture_normal = ExtResource("6_88yfo")
 texture_pressed = ExtResource("7_jr7oj")
 stretch_mode = 0
@@ -175,10 +230,11 @@ stretch_mode = 0
 z_index = 2
 layout_mode = 0
 offset_left = 7.0
-offset_top = -2.0
-offset_right = 17.0
-offset_bottom = 21.0
-theme_override_font_sizes/font_size = 12
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 308.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 226
 text = "x"
 
 [node name="InventoryButton" type="Control" parent="."]
@@ -201,11 +257,12 @@ ignore_texture_size = true
 [node name="InventoryLabel" type="Label" parent="InventoryButton"]
 z_index = 2
 layout_mode = 0
-offset_left = 5.0
+offset_left = 7.0
 offset_top = -1.0
-offset_right = 61.0
-offset_bottom = 16.0
-theme_override_font_sizes/font_size = 12
+offset_right = 1060.0
+offset_bottom = 308.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 226
 text = "Inventory"
 
 [connection signal="focus_entered" from="QuestButton/questButton" to="." method="_on_quest_button_focus_entered"]
