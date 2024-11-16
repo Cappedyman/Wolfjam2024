@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfnc465md0it"]
+
+[ext_resource type="Script" path="res://Scenes/FishStore/fish_store.gd" id="1_3ws4g"]
+[ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_7iwxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3n7x"]
+size = Vector2(58, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxomp"]
+size = Vector2(1225, 170)
+
+[node name="FishStore" type="Node2D"]
+script = ExtResource("1_3ws4g")
+
+[node name="FishDoorReverse" type="Area2D" parent="."]
+position = Vector2(85, 368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishDoorReverse"]
+position = Vector2(2, 68)
+shape = SubResource("RectangleShape2D_d3n7x")
+
+[node name="ColorRect" type="ColorRect" parent="FishDoorReverse"]
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 127.0
+color = Color(0.167575, 0.594729, 1, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -42.0
+offset_top = 498.0
+offset_right = 1178.0
+offset_bottom = 662.0
+color = Color(1, 0.653245, 0.783397, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(569.5, 581)
+shape = SubResource("RectangleShape2D_nxomp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 169.0
+offset_top = 183.0
+offset_right = 266.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 50
+text = "Fish
+"
+
+[node name="Cat" parent="." instance=ExtResource("1_7iwxt")]
+position = Vector2(190, 391)
+
+[connection signal="body_entered" from="FishDoorReverse" to="." method="_on_fish_door_reverse_body_entered"]
+[connection signal="body_exited" from="FishDoorReverse" to="." method="_on_fish_door_reverse_body_exited"]
