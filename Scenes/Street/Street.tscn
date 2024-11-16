@@ -3,17 +3,72 @@
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbni7"]
+size = Vector2(2646, 170)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bv2v"]
 size = Vector2(58, 116)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbni7"]
-size = Vector2(1225, 170)
 
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
 
+[node name="Temp Floor" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Temp Floor"]
+offset_left = -877.0
+offset_top = 498.0
+offset_right = 1807.0
+offset_bottom = 1198.0
+color = Color(1, 0.653245, 0.783397, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp Floor"]
+position = Vector2(448, 581)
+shape = SubResource("RectangleShape2D_kbni7")
+
+[node name="711Door" type="Area2D" parent="."]
+position = Vector2(617, 370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="711Door"]
+position = Vector2(2, 68)
+shape = SubResource("RectangleShape2D_3bv2v")
+
+[node name="ColorRect" type="ColorRect" parent="711Door"]
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 127.0
+color = Color(0.167575, 0.594729, 1, 1)
+
+[node name="PharmacyDoor" type="Area2D" parent="."]
+position = Vector2(298, 367)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PharmacyDoor"]
+position = Vector2(2, 68)
+shape = SubResource("RectangleShape2D_3bv2v")
+
+[node name="ColorRect" type="ColorRect" parent="PharmacyDoor"]
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 127.0
+color = Color(0.167575, 0.594729, 1, 1)
+
+[node name="AlleywayDoor" type="Area2D" parent="."]
+position = Vector2(72, 370)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayDoor"]
+position = Vector2(2, 68)
+shape = SubResource("RectangleShape2D_3bv2v")
+
+[node name="ColorRect" type="ColorRect" parent="AlleywayDoor"]
+offset_left = -27.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 127.0
+color = Color(0.167575, 0.594729, 1, 1)
+
 [node name="FishDoor" type="Area2D" parent="."]
-position = Vector2(482, 370)
+position = Vector2(481, 369)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishDoor"]
 position = Vector2(2, 68)
@@ -29,18 +84,41 @@ color = Color(0.167575, 0.594729, 1, 1)
 [node name="Cat" parent="." instance=ExtResource("1_sau32")]
 position = Vector2(150, 354)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -42.0
-offset_top = 498.0
-offset_right = 1178.0
-offset_bottom = 662.0
-color = Color(1, 0.653245, 0.783397, 1)
+[node name="Label4" type="Label" parent="."]
+offset_left = 606.0
+offset_top = 332.0
+offset_right = 646.0
+offset_bottom = 355.0
+text = "711"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Label3" type="Label" parent="."]
+offset_left = 261.0
+offset_top = 331.0
+offset_right = 339.0
+offset_bottom = 354.0
+text = "pharmacy
+"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(569.5, 581)
-shape = SubResource("RectangleShape2D_kbni7")
+[node name="Label2" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 329.0
+offset_right = 101.0
+offset_bottom = 352.0
+text = "alleyway"
 
+[node name="Label" type="Label" parent="."]
+offset_left = 467.0
+offset_top = 334.0
+offset_right = 507.0
+offset_bottom = 357.0
+text = "fish
+"
+
+[connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
+[connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
+[connection signal="body_entered" from="PharmacyDoor" to="." method="_on_pharmacy_door_body_entered"]
+[connection signal="body_exited" from="PharmacyDoor" to="." method="_on_pharmacy_door_body_exited"]
+[connection signal="body_entered" from="AlleywayDoor" to="." method="_on_alleyway_door_body_entered"]
+[connection signal="body_exited" from="AlleywayDoor" to="." method="_on_alleyway_door_body_exited"]
 [connection signal="body_entered" from="FishDoor" to="." method="_on_fish_door_body_entered"]
 [connection signal="body_exited" from="FishDoor" to="." method="_on_fish_door_body_exited"]
