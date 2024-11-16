@@ -49,10 +49,11 @@ color = Color(0.230975, 0.432222, 0.0168288, 1)
 
 [node name="DialogueText" type="Label" parent="Box"]
 layout_mode = 0
-offset_left = 204.0
+offset_left = 182.0
 offset_top = 27.0
-offset_right = 667.0
+offset_right = 677.0
 offset_bottom = 164.0
+autowrap_mode = 3
 
 [node name="Continue" type="Button" parent="Box"]
 layout_mode = 0

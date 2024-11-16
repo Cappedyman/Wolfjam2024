@@ -6,6 +6,9 @@ var itemData = {}
 #stores all data for dialogues
 var dialogueData = {}
 
+#stores all data for quests
+var questData = {}
+
 #stores mapping for dialogue name to id
 var dialogueMapping = {
 	"hobo": "0",
@@ -26,12 +29,22 @@ var itemMapping = {
 	"antidepressants": "4"
 }
 
+#stores mapping for quest name to id
+var questMapping = {
+	"hobo": "0",
+	"fish-guy": "1",
+	"couple": "2",
+	"depressed-man": "3"
+}
+
 var dialogueDataFilePath = "res://Data/Dialogue/dialogue.json"
 var itemDataFilePath = "res://Data/Items/items.json"
+var questDataFilePath = "res://Data/Quests/quests.json"
 
 func _ready() -> void:
 	dialogueData = load_data_file(dialogueDataFilePath)
 	itemData = load_data_file(itemDataFilePath)
+	questData = load_data_file(questDataFilePath)
 
 func load_data_file(filePath : String):
 	if !FileAccess.file_exists(filePath): #no file exists with the given path
@@ -65,7 +78,20 @@ func get_item_dict_by_id(id: String) -> Dictionary:
 
 func get_dialogue_dict_by_id(id: String) -> Dictionary:
 	if id not in dialogueData:
-		print(id + " is not a valid item id")
+		print(id + " is not a valid dialogue id")
 		return {null: null}
 	else:
 		return dialogueData[id]
+		
+func get_quest_id_by_name(name: String) -> String:
+	if name.to_lower() in questMapping:
+		return itemMapping[name.to_lower()]
+	else:
+		return "null"
+
+func get_quest_dict_by_id(id: String) -> Dictionary:
+	if id not in questData:
+		print(id + " is not a valid quest id")
+		return {null: null}
+	else:
+		return questData[id]

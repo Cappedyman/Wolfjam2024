@@ -2,7 +2,6 @@ extends Node2D
 
 var canEnterAlleywayDoor: bool = false
 var canTalkToHobo: bool = false
-var dialogueBoxOpen: bool = false
 
 var dialogue
 
@@ -29,6 +28,9 @@ func renderDialogueBox() -> void:
 	var cat = get_node("Cat")
 	dialogue.position = Vector2(cat.position.x - 300, cat.position.y)
 	
+	if StaticInventory.checkForID(StaticData.get_item_id_by_name("key")) and StaticQuestProgress.hoboQuest == 1:
+		StaticQuestProgress.progressQuest("hobo")
+	
 	dialogue.setNpc("hobo") # assigns proper dialogues
 	dialogue.create_queue() # creates the output queue for the dialogue box
 	
@@ -36,8 +38,9 @@ func renderDialogueBox() -> void:
 
 func _dialogue_finished():
 	dialogue.queue_free()
-	dialogueBoxOpen = false
 	get_tree().paused = false
+	if StaticQuestProgress.hoboQuest == 0 or StaticQuestProgress.hoboQuest == 2: # we just got the quest or just finished it
+		StaticQuestProgress.progressQuest("hobo")
 
 func _on_alleyway_door_reverse_body_entered(body: Node2D) -> void:
 	if body.name == "Cat":

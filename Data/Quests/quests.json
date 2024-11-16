@@ -1,0 +1,22 @@
+{
+	"0": {
+		"name": "hoboQuest",
+		"description": "Find Hobo's key and return it to him.",
+		"location": "Alleyway"
+	},
+	"1": {
+		"name": "fishQuest",
+		"description": "Find a fish and give it to Fish-Guy.",
+		"location": "City Street"
+	},
+	"2": {
+		"name": "coupleQuest",
+		"description": "Find a rose and give it to the couple.",
+		"location": "City Street"
+	},
+	"3": {
+		"name": "depressedQuest",
+		"description": "Find the depressed man's ID and get his prescription for him.",
+		"location": "City Street"
+	}
+}

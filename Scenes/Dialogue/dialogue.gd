@@ -27,7 +27,7 @@ func _on_continue_button_up() -> void:
 	elif nextCommand is String:   # change dialogue
 		_dialogueText.text = nextCommand
 	else:                         # signals end of dialogue
-		print("Dialogue ended")
+		get_parent()._dialogue_finished()
 
 func setSpeaker(info: Dictionary) -> void: # Changes speakers name and Photo
 	_name.text = info["name"]
