@@ -1,30 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://rok0b4tbfjqx"]
+[gd_scene load_steps=4 format=3 uid="uid://rok0b4tbfjqx"]
 
-[ext_resource type="Texture2D" uid="uid://dvaqfkfba758i" path="res://Images/ItemSlot.png" id="2_0dc8a"]
+[ext_resource type="Script" path="res://Scenes/Inventory/InvTap.gd" id="1_n2m6q"]
 
-[sub_resource type="GDScript" id="GDScript_0k8x5"]
-script/source = "extends Sprite2D
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2xla3"]
+load_path = "res://.godot/imported/ItemSlot.png-484ef21f21be0768eda76ee2c64a1c2d.ctex"
 
-@export var description = \"\"
-"
+[sub_resource type="ButtonGroup" id="ButtonGroup_540ex"]
+resource_local_to_scene = false
 
 [node name="InvSlot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(32, 32)
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 35.0
+offset_bottom = 38.0
 mouse_filter = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
-scale = Vector2(1.625, 1.625)
-texture = ExtResource("2_0dc8a")
-
 [node name="item_display" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
+visible = false
+position = Vector2(13, 10)
 scale = Vector2(0.8, 0.8)
 region_rect = Rect2(20, 20, 20, 20)
-script = SubResource("GDScript_0k8x5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13, 10)
+scale = Vector2(1.625, 1.625)
+texture = SubResource("CompressedTexture2D_2xla3")
+script = ExtResource("1_n2m6q")
+
+[node name="Button" type="Button" parent="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -9.84615
+offset_top = -10.4615
+offset_right = 10.1538
+offset_bottom = 9.53841
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_540ex")
+flat = true
 
 [connection signal="mouse_entered" from="." to="item_display" method="_on_inv_slot_mouse_entered"]
 [connection signal="mouse_exited" from="." to="item_display" method="_on_inv_slot_mouse_exited"]
+[connection signal="toggled" from="Sprite2D/Button" to="Sprite2D" method="_on_button_toggled"]

@@ -27,6 +27,7 @@ offset_right = -1002.0
 offset_bottom = -510.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3.5, 3.5)
 mouse_filter = 1
 script = ExtResource("1_k2aq1")
 
@@ -45,7 +46,6 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="ItemBoxes" type="GridContainer" parent="InventoryMasterBox"]
-visible = false
 z_index = 10
 layout_mode = 0
 offset_left = 5.0

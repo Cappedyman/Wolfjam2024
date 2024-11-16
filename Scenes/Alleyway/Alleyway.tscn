@@ -90,7 +90,6 @@ offset_left = 307.0
 offset_top = 6.0
 offset_right = 307.0
 offset_bottom = 6.0
-scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="Hobo" to="." method="_on_hobo_body_entered"]
 [connection signal="body_exited" from="Hobo" to="." method="_on_hobo_body_exited"]
