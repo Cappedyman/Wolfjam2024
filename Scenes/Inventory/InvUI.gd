@@ -1,5 +1,7 @@
 extends Control
 
+@onready var inventory: Dictionary = {}
+@onready var slots: Array = []
 
 var isOpen = false
 var inventoryActive = true
@@ -12,7 +14,7 @@ func _ready() -> void:
 	close()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# open and close inventory
 	if Input.is_action_just_pressed("openInventory"):
 		if isOpen and inventoryActive:
