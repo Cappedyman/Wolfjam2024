@@ -13,10 +13,22 @@ var outputQueue = []
 var init: bool = true # tells us if we are in init
 
 func _process(_delta: float) -> void:
-	if not init: # if we are out of initialization
-		pass
-	
-	
+	if not init: # if we are out of initialization, then we push the first piece of dialogue and never run _process again
+		_name.text = outputQueue.pop_front()["name"]
+		_dialogueText.text = outputQueue.pop_front()
+		init = !init
+
+# button will progress dialogue // change image and name
+func _on_continue_button_up() -> void:
+	var nextCommand = outputQueue.pop_front()
+	if nextCommand is Dictionary: # change image and name
+		_name.text = nextCommand["name"]
+		_dialogueText.text = outputQueue.pop_front() #if we just changed the name then the next command will be a String
+	elif nextCommand is String:   # change dialogue
+		_dialogueText.text = nextCommand
+	else:                         # signals end of dialogue
+		print("Dialogue ended")
+
 func setSpeaker(info: Dictionary) -> void: # Changes speakers name and Photo
 	_name.text = info["name"]
 
@@ -63,5 +75,5 @@ func lex(dialogue: String) -> Array:
 	if !dialogueBuilder.is_empty(): # appends final bit of dialogue if applicable
 		queue.push_back(dialogueBuilder)
 	
-	queue.push_back("{signal-done}") # identifier to tell the dialog box to unpause game tree and free itself // progess
+	queue.push_back(0) # identifier to tell the dialog box to unpause game tree and free itself // progess, it will be the only int in the queue
 	return queue

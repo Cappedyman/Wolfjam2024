@@ -60,3 +60,5 @@ offset_left = 616.6
 offset_top = 140.432
 offset_right = 685.6
 offset_bottom = 179.432
+
+[connection signal="button_up" from="Box/Continue" to="." method="_on_continue_button_up"]
