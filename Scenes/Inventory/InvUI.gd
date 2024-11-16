@@ -71,7 +71,7 @@ func _on_quest_button_pressed() -> void:
 	$QuestButton/questButton.button_pressed = true
 	$InventoryButton/inventoryButton.button_pressed = false
 	$InventoryMasterBox/ItemBoxes.visible = false
-	$InventoryMasterBox/QuestList.visible = true
+	$InventoryMasterBox/QuestMenu.visible = true
 	$InventoryButton/inventoryButton.z_index = 0
 	$QuestButton/questButton.z_index = 2
 	$InventoryButton/InventoryLabel.add_theme_color_override("font_shadow_color", Color(0,0,0,0))
@@ -81,7 +81,7 @@ func _on_inventory_button_pressed() -> void:
 	$InventoryButton/inventoryButton.button_pressed = true
 	$QuestButton/questButton.button_pressed = false
 	$InventoryMasterBox/ItemBoxes.visible = true
-	$InventoryMasterBox/QuestList.visible = false
+	$InventoryMasterBox/QuestMenu.visible = false
 	$InventoryButton/inventoryButton.z_index = 2
 	$QuestButton/questButton.z_index = 0
 	$InventoryButton/InventoryLabel.add_theme_color_override("font_shadow_color", Color(0,0,0,1))
