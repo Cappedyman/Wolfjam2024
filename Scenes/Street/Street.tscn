@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=6 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
@@ -8,6 +8,9 @@ size = Vector2(2646, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bv2v"]
 size = Vector2(58, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uymo"]
+size = Vector2(32.5, 34)
 
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
@@ -114,6 +117,28 @@ offset_bottom = 357.0
 text = "fish
 "
 
+[node name="Rose" type="Area2D" parent="."]
+position = Vector2(-142, 385)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rose"]
+position = Vector2(1.75, 35)
+shape = SubResource("RectangleShape2D_6uymo")
+
+[node name="ColorRect" type="ColorRect" parent="Rose"]
+offset_left = -16.0
+offset_top = 19.0
+offset_right = 19.0
+offset_bottom = 52.0
+color = Color(1, 0.203087, 0.210547, 1)
+
+[node name="Label" type="Label" parent="Rose"]
+offset_left = -17.0
+offset_top = -8.0
+offset_right = 23.0
+offset_bottom = 15.0
+text = "Rose
+"
+
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
 [connection signal="body_entered" from="PharmacyDoor" to="." method="_on_pharmacy_door_body_entered"]
@@ -122,3 +147,4 @@ text = "fish
 [connection signal="body_exited" from="AlleywayDoor" to="." method="_on_alleyway_door_body_exited"]
 [connection signal="body_entered" from="FishDoor" to="." method="_on_fish_door_body_entered"]
 [connection signal="body_exited" from="FishDoor" to="." method="_on_fish_door_body_exited"]
+[connection signal="body_entered" from="Rose" to="." method="_on_rose_body_entered"]
