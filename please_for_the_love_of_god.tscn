@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://lqvjjba5u6xq"]
+
+[node name="please for the love of god" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
