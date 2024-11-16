@@ -8,12 +8,12 @@ var dialogueData = {}
 
 #stores mapping for dialogue name to id
 var dialogueMapping = {
-	"hobo": 0,
-	"fish-guy": 1
+	"hobo": "0",
+	"fish-guy": "1"
 }
 
 var itemMapping = {
-	"key": 0
+	"key": "0"
 }
 
 var dialogueDataFilePath = "res://Data/Dialogue/dialogue.json"
