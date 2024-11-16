@@ -42,6 +42,6 @@ func _on_freezer_door_reverse_body_exited(body: Node2D) -> void:
 
 
 func _on_fish_body_entered(body: Node2D) -> void:
-	StaticInventory.add_item("77")
+	StaticInventory.add_item("1")
 	$Fish.queue_free()
 	print(StaticInventory.getInv())
