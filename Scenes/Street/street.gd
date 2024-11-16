@@ -158,3 +158,23 @@ func _on_flower_lady_body_entered(body: Node2D) -> void:
 func _on_flower_lady_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 		canTalkToFlowerLady = false
+
+
+func _on_nick_body_entered(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToDepressedNick = true
+
+
+func _on_nick_body_exited(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToDepressedNick = false
+
+
+func _on_couple_man_body_entered(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToHopelessRomantic = true
+
+
+func _on_couple_man_body_exited(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToHopelessRomantic = false

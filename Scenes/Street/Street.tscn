@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=12 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
@@ -21,6 +21,12 @@ size = Vector2(87, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjh0y"]
 size = Vector2(57, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlw4b"]
+size = Vector2(93, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixgy"]
+size = Vector2(78, 93.5)
 
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
@@ -132,6 +138,34 @@ offset_top = 12.0
 offset_right = 30.0
 offset_bottom = 63.0
 
+[node name="Nick" type="Area2D" parent="."]
+position = Vector2(4477, 306)
+
+[node name="ColorRect" type="ColorRect" parent="Nick"]
+offset_left = -38.0
+offset_top = 34.0
+offset_right = 46.0
+offset_bottom = 166.0
+color = Color(1, 0.560784, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nick"]
+position = Vector2(4, 99.5)
+shape = SubResource("RectangleShape2D_qlw4b")
+
+[node name="CoupleMan" type="Area2D" parent="."]
+position = Vector2(4109, 363)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoupleMan"]
+position = Vector2(1, 65.25)
+shape = SubResource("RectangleShape2D_8ixgy")
+
+[node name="ColorRect" type="ColorRect" parent="CoupleMan"]
+offset_left = -44.0
+offset_top = 20.0
+offset_right = 43.0
+offset_bottom = 113.0
+color = Color(1, 0.270588, 0.454902, 1)
+
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
 [connection signal="body_entered" from="PharmacyDoor" to="." method="_on_pharmacy_door_body_entered"]
@@ -145,3 +179,7 @@ offset_bottom = 63.0
 [connection signal="body_exited" from="FishMonger" to="." method="_on_fish_monger_body_exited"]
 [connection signal="body_entered" from="FlowerLady" to="." method="_on_flower_lady_body_entered"]
 [connection signal="body_exited" from="FlowerLady" to="." method="_on_flower_lady_body_exited"]
+[connection signal="body_entered" from="Nick" to="." method="_on_nick_body_entered"]
+[connection signal="body_exited" from="Nick" to="." method="_on_nick_body_exited"]
+[connection signal="body_entered" from="CoupleMan" to="." method="_on_couple_man_body_entered"]
+[connection signal="body_exited" from="CoupleMan" to="." method="_on_couple_man_body_exited"]
