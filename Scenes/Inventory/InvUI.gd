@@ -17,16 +17,14 @@ func _ready() -> void:
 
 	
 
-
+# populates inventory
 func update_slots():
 	for i in range(min(inventory.size(), slots.size())):
-		var childrens = slots[i].get_child(1)
+		var childrens = slots[i].get_children()[1]
 		var item_dict = StaticData.get_item_dict_by_id(inventory[i])
 		childrens.texture = load(item_dict["image"])
 		childrens.name = item_dict["name"]
 		childrens.description = item_dict["description"]
-		
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -52,7 +50,7 @@ func _input(event: InputEvent) -> void:
 			open()
 			inventoryActive = false
 			_on_quest_button_pressed()
-	if Input.is_action_just_pressed("escape") and isOpen:
+	if Input.is_action_just_pressed("Exit") and isOpen:
 		close()
 	
 func open():
@@ -68,6 +66,7 @@ func close():
 	get_tree().paused = false
 	isOpen = false
 
+# toggles button colors and visibility of the quest/ inventory menus 
 func _on_quest_button_pressed() -> void:
 	$QuestButton/questButton.button_pressed = true
 	$InventoryButton/inventoryButton.button_pressed = false
@@ -88,5 +87,6 @@ func _on_inventory_button_pressed() -> void:
 	$InventoryButton/InventoryLabel.add_theme_color_override("font_shadow_color", Color(0,0,0,1))
 	$QuestButton/QuestsLabel.add_theme_color_override("font_shadow_color", Color(0,0,0,0))
 
+# handles physical press of close button
 func _on_close_button_button_up() -> void:
 	close()

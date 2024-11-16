@@ -15,19 +15,21 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -824.0
-offset_bottom = -436.0
+offset_right = -1002.0
+offset_bottom = -510.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_k2aq1")
 
 [node name="InventoryMasterBox" type="NinePatchRect" parent="."]
-z_index = 5
+z_index = 10
 material = SubResource("CanvasItemMaterial_an31k")
 layout_mode = 0
 offset_top = 15.0
 offset_right = 150.0
 offset_bottom = 137.0
+mouse_filter = 1
 texture = ExtResource("1_07ipc")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -35,6 +37,7 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="ItemBoxes" type="GridContainer" parent="InventoryMasterBox"]
+z_index = 10
 layout_mode = 0
 offset_left = 5.0
 offset_top = 10.0
@@ -81,9 +84,22 @@ layout_mode = 2
 [node name="QuestList" type="GridContainer" parent="InventoryMasterBox"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 6.0
+offset_top = 9.0
 offset_right = 145.0
 offset_bottom = 115.0
+
+[node name="Panel" type="Panel" parent="InventoryMasterBox"]
+z_index = -2
+layout_mode = 0
+offset_left = 150.0
+offset_right = 190.0
+offset_bottom = 120.0
+
+[node name="TextureRect" type="TextureRect" parent="InventoryMasterBox/Panel"]
+custom_minimum_size = Vector2(40, 120)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 120.0
 
 [node name="QuestButton" type="Control" parent="."]
 layout_mode = 3
@@ -96,10 +112,12 @@ offset_bottom = 15.0
 layout_mode = 0
 offset_left = -3.0
 offset_right = 62.0
-offset_bottom = 32.0
+offset_bottom = 29.0
+scale = Vector2(1, 0.52)
 toggle_mode = true
 texture_normal = ExtResource("5_wk4nu")
 texture_pressed = ExtResource("4_paott")
+ignore_texture_size = true
 
 [node name="QuestsLabel" type="Label" parent="QuestButton"]
 z_index = 2
@@ -114,15 +132,14 @@ text = "Quests"
 [node name="CloseButton" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 136.0
+offset_left = 129.0
 offset_right = 151.0
-offset_bottom = 25.0
+offset_bottom = 18.0
 
 [node name="closeButton" type="TextureButton" parent="CloseButton"]
 z_index = -1
 layout_mode = 0
-offset_left = -7.0
-offset_right = 13.0
+offset_right = 20.0
 offset_bottom = 20.0
 texture_normal = ExtResource("6_88yfo")
 texture_pressed = ExtResource("7_jr7oj")
@@ -131,8 +148,9 @@ stretch_mode = 0
 [node name="x" type="Label" parent="CloseButton"]
 z_index = 2
 layout_mode = 0
+offset_left = 7.0
 offset_top = -2.0
-offset_right = 10.0
+offset_right = 17.0
 offset_bottom = 21.0
 theme_override_font_sizes/font_size = 12
 text = "x"
@@ -140,26 +158,27 @@ text = "x"
 [node name="InventoryButton" type="Control" parent="."]
 z_index = 1
 anchors_preset = 0
-offset_right = 70.0
-offset_bottom = 60.0
+offset_right = 66.0
+offset_bottom = 16.0
 
 [node name="inventoryButton" type="TextureButton" parent="InventoryButton"]
 z_index = 1
 layout_mode = 1
 offset_left = 1.0
 offset_right = 66.0
-offset_bottom = 32.0
+offset_bottom = 15.0
 toggle_mode = true
 texture_normal = ExtResource("5_wk4nu")
 texture_pressed = ExtResource("4_paott")
+ignore_texture_size = true
 
 [node name="InventoryLabel" type="Label" parent="InventoryButton"]
 z_index = 2
 layout_mode = 0
 offset_left = 5.0
 offset_top = -1.0
-offset_right = 70.0
-offset_bottom = 31.0
+offset_right = 61.0
+offset_bottom = 16.0
 theme_override_font_sizes/font_size = 12
 text = "Inventory"
 
