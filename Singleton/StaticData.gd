@@ -6,6 +6,16 @@ var itemData = {}
 #stores all data for dialogues
 var dialogueData = {}
 
+#stores mapping for dialogue name to id
+var dialogueMapping = {
+	"hobo": 0,
+	"fish-guy": 1
+}
+
+var itemMapping = {
+	"key": 0
+}
+
 var dialogueDataFilePath = "res://Data/Dialogue/dialogue.json"
 var itemDataFilePath = "res://Data/Items/items.json"
 
@@ -23,3 +33,15 @@ func load_data_file(filePath : String):
 			return parsedResult
 		else:
 			print("Error reading " + filePath)
+
+func get_dialogue_id_by_name(name: String) -> String:
+	if name.to_lower() in dialogueMapping:
+		return dialogueMapping[name.to_lower()]
+	else:
+		return "null"
+
+func get_item_id_by_name(name: String):
+	if name.to_lower() in itemMapping:
+		return itemMapping[name.to_lower()]
+	else:
+		return "null"
