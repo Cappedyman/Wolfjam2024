@@ -61,4 +61,4 @@ func get_item_dict_by_id(id: String) -> Dictionary:
 		print(id + " is not a valid item id")
 		return {null: null}
 	else:
-		return {}
+		return itemData[id]
