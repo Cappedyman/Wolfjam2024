@@ -5,6 +5,11 @@ var canEnterAlleywayDoor: bool = false
 var canEnterPharmacyDoor: bool = false
 var canEnter711Door: bool = false
 
+var canTalkToFlowerLady: bool = false;
+var canTalkToFishMonger: bool = false;
+var canTalkToHopelessRomantic: bool = false;
+var canTalkToDepressedNick: bool = false;
+
 @onready var Cat = get_node("Cat")
 @onready var interactIconScene = load("res://Scenes/InteractIcon/InteractIcon.tscn")
 
@@ -118,3 +123,24 @@ func _on_rose_body_entered(body: Node2D) -> void:
 	StaticInventory.add_item("2")
 	$Rose.queue_free()
 	print(StaticInventory.getInv())
+
+
+
+
+func _on_fish_monger_body_entered(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToFishMonger = true
+
+func _on_fish_monger_body_exited(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToFishMonger = false
+
+
+func _on_flower_lady_body_entered(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToFlowerLady = true
+
+
+func _on_flower_lady_body_exited(body: Node2D) -> void:
+	if body.name == "Cat":
+		canTalkToFlowerLady = false

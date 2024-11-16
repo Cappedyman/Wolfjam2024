@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=10 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
@@ -15,6 +15,12 @@ size = Vector2(32.5, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bv6n1"]
 size = Vector2(101, 1070.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcr2x"]
+size = Vector2(87, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjh0y"]
+size = Vector2(57, 134)
 
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
@@ -99,6 +105,33 @@ position = Vector2(5090, 270)
 position = Vector2(8, 566.75)
 shape = SubResource("RectangleShape2D_bv6n1")
 
+[node name="FishMonger" type="Area2D" parent="."]
+position = Vector2(2197, 339)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishMonger"]
+position = Vector2(1, 73)
+shape = SubResource("RectangleShape2D_hcr2x")
+
+[node name="ColorRect" type="ColorRect" parent="FishMonger"]
+offset_left = -44.0
+offset_top = 22.0
+offset_right = 45.0
+offset_bottom = 126.0
+color = Color(0.223529, 1, 1, 1)
+
+[node name="FlowerLady" type="Area2D" parent="."]
+position = Vector2(233, 306)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerLady"]
+position = Vector2(6, 77)
+shape = SubResource("RectangleShape2D_tjh0y")
+
+[node name="ColorRect" type="ColorRect" parent="FlowerLady"]
+offset_left = -20.0
+offset_top = 12.0
+offset_right = 30.0
+offset_bottom = 63.0
+
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
 [connection signal="body_entered" from="PharmacyDoor" to="." method="_on_pharmacy_door_body_entered"]
@@ -108,3 +141,7 @@ shape = SubResource("RectangleShape2D_bv6n1")
 [connection signal="body_entered" from="FishDoor" to="." method="_on_fish_door_body_entered"]
 [connection signal="body_exited" from="FishDoor" to="." method="_on_fish_door_body_exited"]
 [connection signal="body_entered" from="Rose" to="." method="_on_rose_body_entered"]
+[connection signal="body_entered" from="FishMonger" to="." method="_on_fish_monger_body_entered"]
+[connection signal="body_exited" from="FishMonger" to="." method="_on_fish_monger_body_exited"]
+[connection signal="body_entered" from="FlowerLady" to="." method="_on_flower_lady_body_entered"]
+[connection signal="body_exited" from="FlowerLady" to="." method="_on_flower_lady_body_exited"]
