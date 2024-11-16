@@ -4,18 +4,27 @@ var canEnterAlleywayDoor: bool = false
 var canTalkToHobo: bool = false
 
 var dialogue
+var interactIcon
 
 @onready var dialogueBox = load("res://Scenes/Dialogue/dialogue.tscn")
+@onready var interactIconScene = load("res://Scenes/InteractIcon/InteractIcon.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	interactIcon = interactIconScene.instantiate()
+	add_child(interactIcon)
+	hideInteractIcon()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if canEnterAlleywayDoor and Input.is_action_just_pressed("Interact"):
-		get_tree().change_scene_to_file("res://Scenes/Street/Street.tscn");
+	if canEnterAlleywayDoor:
+		var doorPos = $AlleywayDoorReverse.position
+		interactIcon.position = Vector2(doorPos.x, doorPos.y - 150)
+		showInteractIcon()
+		if Input.is_action_just_pressed("Interact"):
+			get_tree().change_scene_to_file("res://Scenes/Street/Street.tscn");
 		
 	if canTalkToHobo and Input.is_action_just_pressed("Interact"):
 		get_tree().paused = true
@@ -50,6 +59,7 @@ func _on_alleyway_door_reverse_body_entered(body: Node2D) -> void:
 func _on_alleyway_door_reverse_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 			canEnterAlleywayDoor = false
+			hideInteractIcon()
 			
 
 func _on_hobo_body_entered(body: Node2D) -> void:
@@ -60,3 +70,10 @@ func _on_hobo_body_entered(body: Node2D) -> void:
 func _on_hobo_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 			canTalkToHobo = false
+
+
+func showInteractIcon() -> void:
+	interactIcon.visible = true
+
+func hideInteractIcon() -> void:
+	interactIcon.visible = false

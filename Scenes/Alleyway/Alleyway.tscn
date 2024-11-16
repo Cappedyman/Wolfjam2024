@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6qjn4i8m3453"]
+[gd_scene load_steps=12 format=3 uid="uid://c6qjn4i8m3453"]
 
 [ext_resource type="Script" path="res://Scenes/Alleyway/alleyway.gd" id="1_kmli6"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_lfaqh"]
@@ -21,7 +21,10 @@ size = Vector2(362, 53)
 size = Vector2(120.5, 81.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1ej4"]
-size = Vector2(82, 122)
+size = Vector2(82, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3auaa"]
+size = Vector2(101, 1070.5)
 
 [node name="Alleyway" type="Node2D"]
 position = Vector2(-9, 43)
@@ -82,14 +85,29 @@ shape = SubResource("RectangleShape2D_ddqrp")
 position = Vector2(517, 278)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(27, 61)
+position = Vector2(27, 11.5)
 shape = SubResource("RectangleShape2D_g1ej4")
+one_way_collision = true
 
 [node name="InvUi" parent="." instance=ExtResource("4_dpb6b")]
 offset_left = 307.0
 offset_top = 6.0
 offset_right = 307.0
 offset_bottom = 6.0
+
+[node name="wall2" type="StaticBody2D" parent="."]
+position = Vector2(1207, -260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_3auaa")
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(-49, -227)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_3auaa")
 
 [connection signal="body_entered" from="Hobo" to="." method="_on_hobo_body_entered"]
 [connection signal="body_exited" from="Hobo" to="." method="_on_hobo_body_exited"]

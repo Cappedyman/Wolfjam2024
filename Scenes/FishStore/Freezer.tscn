@@ -1,60 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd7y0ara0i4hw"]
+[gd_scene load_steps=11 format=3 uid="uid://bd7y0ara0i4hw"]
 
 [ext_resource type="Script" path="res://Scenes/FishStore/freezer.gd" id="1_7xjnb"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_nklps"]
+[ext_resource type="Texture2D" uid="uid://dkrfju223pfgi" path="res://Art/fishshopfreezer.png" id="2_rd1xl"]
+[ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_q2yti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5vl7"]
-size = Vector2(58, 116)
+size = Vector2(139, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aavet"]
 size = Vector2(2314, 170)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wxvq"]
+size = Vector2(101, 1070.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao64t"]
 size = Vector2(24.5, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ig8"]
+size = Vector2(274, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibupm"]
+size = Vector2(344.5, 26)
+
 [node name="Freezer" type="Node2D"]
+position = Vector2(-432, 566)
 script = ExtResource("1_7xjnb")
 
+[node name="Fishshopfreezer" type="Sprite2D" parent="."]
+position = Vector2(1003.13, -209)
+scale = Vector2(0.64875, 0.601667)
+texture = ExtResource("2_rd1xl")
+
 [node name="FreezerDoorReverse" type="Area2D" parent="."]
-position = Vector2(85, 368)
+position = Vector2(530, -395)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FreezerDoorReverse"]
-position = Vector2(2, 68)
+position = Vector2(7.5, 172)
 shape = SubResource("RectangleShape2D_w5vl7")
 
-[node name="ColorRect" type="ColorRect" parent="FreezerDoorReverse"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-286, 61)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(622, 581)
+position = Vector2(1291, -72)
 shape = SubResource("RectangleShape2D_aavet")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -532.0
-offset_top = 498.0
-offset_right = 1780.0
-offset_bottom = 990.0
-color = Color(1, 0.653245, 0.783397, 1)
+[node name="wall" type="StaticBody2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(-633, -732)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -60.0
-offset_top = 210.0
-offset_right = 456.0
-offset_bottom = 279.0
-theme_override_font_sizes/font_size = 50
-text = "Freeze, Don't Move :3"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/wall"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_1wxvq")
+
+[node name="wall" type="StaticBody2D" parent="StaticBody2D/CollisionShape2D/wall"]
+position = Vector2(1261, -145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/CollisionShape2D/wall/wall"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_1wxvq")
 
 [node name="Cat" parent="." instance=ExtResource("2_nklps")]
-position = Vector2(192, 424)
+position = Vector2(514, -126)
 
 [node name="Fish" type="Area2D" parent="."]
-position = Vector2(513, 387)
+position = Vector2(1445, -556)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fish"]
 position = Vector2(-1, 35)
@@ -68,12 +78,27 @@ offset_bottom = 58.0
 color = Color(0.819419, 0.443774, 1, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Fish"]
-offset_left = -17.0
-offset_top = -12.0
-offset_right = 23.0
-offset_bottom = 11.0
-text = "fish"
+[node name="freezerChest" type="StaticBody2D" parent="."]
+position = Vector2(891, -233)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="freezerChest"]
+position = Vector2(65, 28)
+shape = SubResource("RectangleShape2D_g0ig8")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1220, -400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(112, 18)
+shape = SubResource("RectangleShape2D_ibupm")
+one_way_collision = true
+
+[node name="InvUi" parent="." instance=ExtResource("4_q2yti")]
+offset_left = 746.0
+offset_top = -493.0
+offset_right = 746.0
+offset_bottom = -493.0
 
 [connection signal="body_entered" from="FreezerDoorReverse" to="." method="_on_freezer_door_reverse_body_entered"]
 [connection signal="body_exited" from="FreezerDoorReverse" to="." method="_on_freezer_door_reverse_body_exited"]
