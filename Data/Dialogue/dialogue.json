@@ -1,4 +1,28 @@
 {
-	"id": 1,
-	"name": "Hobo"
+	"Hobo": {
+		"name": "Hobo",
+		"dialogue-image": "image path",
+		"pre-quest-dialogue": 
+			"Hmm... what's this?\n
+			 A stray... how unfortunate.",
+		"during-quest-dialogue":
+			"Go get that key and then we can talk about finding you a family.",
+		"post-quest-dialogue":
+			"Good job! Now we can leave this alley!\n
+			...What?\n
+			Ah yes a family, well you don't actually need one now do you?\n
+			Fine fine, however, there's one condition.\n
+			You need to make three friends before I can find you a family\n
+			It can't be that hard can it?",
+		"residual-dialogue":
+			"Go on now, you still need to find friends!"
+	},
+	"Fish-Guy": {
+		"name": "null",
+		"dialogue-image": "image path",
+		"pre-quest-dialogue": "",
+		"during-quest-dialogue": "",
+		"post-quest-dialogue": "",
+		"residual-dialogue": ""
+	}
 }
