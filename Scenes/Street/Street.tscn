@@ -1,124 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=8 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
+[ext_resource type="Texture2D" uid="uid://gggw03b3a6en" path="res://Art/streetmaincat.png" id="2_uc866"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbni7"]
-size = Vector2(2646, 170)
+size = Vector2(5409, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bv2v"]
-size = Vector2(58, 116)
+size = Vector2(175, 186)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uymo"]
 size = Vector2(32.5, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bv6n1"]
+size = Vector2(101, 1070.5)
+
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
 
+[node name="Streetmaincat" type="Sprite2D" parent="."]
+position = Vector2(3339, 334)
+scale = Vector2(0.6678, 0.565833)
+texture = ExtResource("2_uc866")
+
 [node name="Temp Floor" type="StaticBody2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Temp Floor"]
-offset_left = -877.0
-offset_top = 498.0
-offset_right = 1807.0
-offset_bottom = 1198.0
-color = Color(1, 0.653245, 0.783397, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Temp Floor"]
-position = Vector2(448, 581)
+position = Vector2(2515.5, 634)
 shape = SubResource("RectangleShape2D_kbni7")
 
 [node name="711Door" type="Area2D" parent="."]
-position = Vector2(617, 370)
+position = Vector2(3496, 282)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="711Door"]
-position = Vector2(2, 68)
+position = Vector2(2, 102)
 shape = SubResource("RectangleShape2D_3bv2v")
-
-[node name="ColorRect" type="ColorRect" parent="711Door"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
 
 [node name="PharmacyDoor" type="Area2D" parent="."]
-position = Vector2(296, 370)
+position = Vector2(4747, 267)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PharmacyDoor"]
-position = Vector2(2, 68)
+position = Vector2(0, 113)
 shape = SubResource("RectangleShape2D_3bv2v")
-
-[node name="ColorRect" type="ColorRect" parent="PharmacyDoor"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
 
 [node name="AlleywayDoor" type="Area2D" parent="."]
-position = Vector2(72, 370)
+position = Vector2(2966, 264)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayDoor"]
-position = Vector2(2, 68)
+position = Vector2(-3, 122)
 shape = SubResource("RectangleShape2D_3bv2v")
-
-[node name="ColorRect" type="ColorRect" parent="AlleywayDoor"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
 
 [node name="FishDoor" type="Area2D" parent="."]
-position = Vector2(477, 370)
+position = Vector2(2499, 267)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishDoor"]
-position = Vector2(2, 68)
+position = Vector2(-0.5, 103)
 shape = SubResource("RectangleShape2D_3bv2v")
 
-[node name="ColorRect" type="ColorRect" parent="FishDoor"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
-
 [node name="Cat" parent="." instance=ExtResource("1_sau32")]
-position = Vector2(181, 420)
-
-[node name="Label4" type="Label" parent="."]
-offset_left = 606.0
-offset_top = 332.0
-offset_right = 646.0
-offset_bottom = 355.0
-text = "711"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 261.0
-offset_top = 331.0
-offset_right = 339.0
-offset_bottom = 354.0
-text = "pharmacy
-"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 329.0
-offset_right = 101.0
-offset_bottom = 352.0
-text = "alleyway"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 467.0
-offset_top = 334.0
-offset_right = 507.0
-offset_bottom = 357.0
-text = "fish
-"
+position = Vector2(2919, 432)
 
 [node name="Rose" type="Area2D" parent="."]
-position = Vector2(-142, 385)
+position = Vector2(184, 473)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rose"]
 position = Vector2(1.75, 35)
@@ -130,6 +74,7 @@ offset_top = 19.0
 offset_right = 19.0
 offset_bottom = 52.0
 color = Color(1, 0.203087, 0.210547, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Rose"]
 offset_left = -17.0
@@ -138,6 +83,21 @@ offset_right = 23.0
 offset_bottom = 15.0
 text = "Rose
 "
+metadata/_edit_use_anchors_ = true
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(-61, -363)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_bv6n1")
+
+[node name="wall" type="StaticBody2D" parent="wall"]
+position = Vector2(5090, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall"]
+position = Vector2(8, 566.75)
+shape = SubResource("RectangleShape2D_bv6n1")
 
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
