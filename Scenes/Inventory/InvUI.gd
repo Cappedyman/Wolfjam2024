@@ -1,5 +1,5 @@
 extends Control
-
+@onready var questMenu = $InventoryMasterBox/QuestMenu
 # on the ready call preload the dictionary
 @onready var inventory = StaticInventory.inventory
 # get the rect slots
@@ -55,6 +55,7 @@ func _input(event: InputEvent) -> void:
 	
 func open():
 	# sets quest/inventory window to visible
+	questMenu.updateQuests()
 	self.visible = true
 	# pauses game when inventory open
 	get_tree().paused = true
