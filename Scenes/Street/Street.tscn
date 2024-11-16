@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=16 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
@@ -27,6 +27,18 @@ size = Vector2(93, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixgy"]
 size = Vector2(78, 93.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8id0r"]
+size = Vector2(66, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opu8g"]
+size = Vector2(349.5, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jar7b"]
+size = Vector2(316, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o4v2"]
+size = Vector2(136, 26)
 
 [node name="Street" type="Node2D"]
 script = ExtResource("1_vharl")
@@ -70,11 +82,8 @@ position = Vector2(2499, 267)
 position = Vector2(-0.5, 103)
 shape = SubResource("RectangleShape2D_3bv2v")
 
-[node name="Cat" parent="." instance=ExtResource("1_sau32")]
-position = Vector2(2927, 448)
-
 [node name="Rose" type="Area2D" parent="."]
-position = Vector2(184, 473)
+position = Vector2(500, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rose"]
 position = Vector2(1.75, 35)
@@ -86,15 +95,6 @@ offset_top = 19.0
 offset_right = 19.0
 offset_bottom = 52.0
 color = Color(1, 0.203087, 0.210547, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="Rose"]
-offset_left = -17.0
-offset_top = -8.0
-offset_right = 23.0
-offset_bottom = 15.0
-text = "Rose
-"
 metadata/_edit_use_anchors_ = true
 
 [node name="wall" type="StaticBody2D" parent="."]
@@ -165,6 +165,37 @@ offset_top = 20.0
 offset_right = 43.0
 offset_bottom = 113.0
 color = Color(1, 0.270588, 0.454902, 1)
+
+[node name="Cat" parent="." instance=ExtResource("1_sau32")]
+position = Vector2(2927, 448)
+
+[node name="fire" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fire"]
+position = Vector2(41, 425.25)
+shape = SubResource("RectangleShape2D_8id0r")
+
+[node name="aptdoor" type="StaticBody2D" parent="."]
+position = Vector2(245, 411.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aptdoor"]
+position = Vector2(-0.75, -185.5)
+shape = SubResource("RectangleShape2D_opu8g")
+one_way_collision = true
+
+[node name="flowerstand" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flowerstand"]
+position = Vector2(245, 411.5)
+shape = SubResource("RectangleShape2D_jar7b")
+one_way_collision = true
+
+[node name="flowerbed" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flowerbed"]
+position = Vector2(512, 163)
+shape = SubResource("RectangleShape2D_4o4v2")
+one_way_collision = true
 
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]
