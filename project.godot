@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 StaticData="*res://Singleton/StaticData.gd"
 LocationStack="*res://Singleton/LocationStack.gd"
+StaticInventory="*res://Singleton/StaticInventory.gd"
 
 [display]
 
