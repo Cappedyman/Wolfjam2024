@@ -46,6 +46,7 @@ position = Vector2(405, -166)
 shape = SubResource("RectangleShape2D_qdsuv")
 
 [node name="Cat" parent="." instance=ExtResource("2_th56s")]
+z_index = 1
 position = Vector2(-10, -315)
 
 [node name="wall" type="StaticBody2D" parent="."]

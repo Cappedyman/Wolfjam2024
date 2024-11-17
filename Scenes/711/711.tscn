@@ -52,6 +52,7 @@ position = Vector2(555, -177)
 shape = SubResource("RectangleShape2D_g2cha")
 
 [node name="Cat" parent="." instance=ExtResource("2_myxuc")]
+z_index = 1
 position = Vector2(-16, -287)
 
 [node name="counter" type="StaticBody2D" parent="."]

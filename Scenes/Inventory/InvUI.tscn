@@ -48,11 +48,13 @@ patch_margin_bottom = 6
 
 [node name="ItemBoxes" type="GridContainer" parent="InventoryMasterBox"]
 z_index = 10
+custom_minimum_size = Vector2(140, 110)
 layout_mode = 0
-offset_left = 5.0
-offset_top = 10.0
-offset_right = 145.0
-offset_bottom = 114.0
+offset_left = 6.57143
+offset_top = 6.71429
+offset_right = 146.571
+offset_bottom = 116.714
+scale = Vector2(1.5, 1.575)
 columns = 4
 
 [node name="InvUiSlot" parent="InventoryMasterBox/ItemBoxes" instance=ExtResource("2_7sb2p")]
@@ -167,6 +169,7 @@ offset_bottom = 40.0
 texture = ExtResource("5_vh1sl")
 
 [node name="QuestMenu" type="Panel" parent="InventoryMasterBox"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(140, 110)
 layout_mode = 0
