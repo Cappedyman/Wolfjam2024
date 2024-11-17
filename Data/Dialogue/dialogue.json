@@ -37,7 +37,7 @@
 	},
 	"3": {
 		"name": "Depressed-Man",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/depressed_guy-dbox.png",
 		"pre-quest-dialogue": 
 			"@nSTUPID STUPID STUPID\nHow could I lose my ID, I really need my prescription\n@cMeow?\n@n...\n@c(He pays no attention to you)",
 		"during-quest-dialogue": 

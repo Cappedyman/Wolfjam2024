@@ -15,8 +15,10 @@ var init: bool = true # tells us if we are in init
 
 func _process(_delta: float) -> void:
 	if not init: # if we are out of initialization, then we push the first piece of dialogue and never run _process again
-		_name.text = outputQueue.pop_front()["name"]
+		var dict = outputQueue.pop_front()
+		_name.text = dict["name"]
 		_dialogueText.text = outputQueue.pop_front()
+		_imageText.texture = load(dict["image"])
 		init = !init
 
 # button will progress dialogue // change image and name

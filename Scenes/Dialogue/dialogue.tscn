@@ -39,6 +39,8 @@ offset_right = 154.0
 offset_bottom = 144.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Box/Image"]
+position = Vector2(65.025, 65.09)
+scale = Vector2(0.3, 0.3)
 
 [node name="ColorRect" type="ColorRect" parent="Box"]
 z_index = -1
