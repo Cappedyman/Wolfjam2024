@@ -1,5 +1,5 @@
 extends Node
-var inventory: Array = ["0"]
+var inventory: Array = []
 func _ready() -> void:
 	pass
 

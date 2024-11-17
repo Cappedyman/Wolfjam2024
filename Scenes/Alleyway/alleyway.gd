@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if canEnterAlleywayDoor:
+	if canEnterAlleywayDoor and StaticQuestProgress.hoboQuest == 3:
 		var doorPos = $AlleywayDoorReverse.position
 		interactIcon.position = Vector2(doorPos.x, doorPos.y - 150)
 		showInteractIcon()
@@ -30,6 +30,10 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 		renderDialogueBox()
 		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS
+		
+	if StaticInventory.checkForID("0"):
+		if $Key:
+			$Key.queue_free()
 
 
 func renderDialogueBox() -> void:
@@ -77,3 +81,8 @@ func showInteractIcon() -> void:
 
 func hideInteractIcon() -> void:
 	interactIcon.visible = false
+
+
+func _on_key_body_entered(body: Node2D) -> void:
+	StaticInventory.add_item("0")
+	$Key.queue_free()
