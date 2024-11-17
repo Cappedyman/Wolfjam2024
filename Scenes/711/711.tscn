@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://urn77goeroje"]
+[gd_scene load_steps=12 format=3 uid="uid://urn77goeroje"]
 
 [ext_resource type="Script" path="res://Scenes/711/711.gd" id="1_sdci2"]
 [ext_resource type="Texture2D" uid="uid://0ns8s3x1qfbe" path="res://Art/1422conveniencestore.png" id="2_lrw7q"]
@@ -21,6 +21,12 @@ size = Vector2(197.5, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfhsi"]
 size = Vector2(127, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpht8"]
+size = Vector2(101, 1070.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfdao"]
+size = Vector2(104, 113)
 
 [node name="711" type="Node2D"]
 position = Vector2(83, 752)
@@ -77,5 +83,34 @@ position = Vector2(57, -614)
 shape = SubResource("RectangleShape2D_rfhsi")
 one_way_collision = true
 
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(-61, -363)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(-71, -17)
+shape = SubResource("RectangleShape2D_kpht8")
+
+[node name="wall" type="StaticBody2D" parent="wall"]
+position = Vector2(5090, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall"]
+position = Vector2(-3910, -332)
+shape = SubResource("RectangleShape2D_kpht8")
+
+[node name="moneyman" type="Area2D" parent="."]
+position = Vector2(861, -541)
+
+[node name="ColorRect" type="ColorRect" parent="moneyman"]
+offset_left = -43.0
+offset_top = -42.0
+offset_right = 63.0
+offset_bottom = 73.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moneyman"]
+position = Vector2(10, 17.5)
+shape = SubResource("RectangleShape2D_sfdao")
+
 [connection signal="body_entered" from="711DoorReverse" to="." method="_on_door_reverse_body_entered"]
 [connection signal="body_exited" from="711DoorReverse" to="." method="_on_door_reverse_body_exited"]
+[connection signal="body_entered" from="moneyman" to="." method="_on_moneyman_body_entered"]
+[connection signal="body_exited" from="moneyman" to="." method="_on_moneyman_body_exited"]
