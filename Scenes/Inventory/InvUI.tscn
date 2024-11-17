@@ -116,7 +116,7 @@ offset_top = 5.0
 offset_right = 40.0
 offset_bottom = 38.0
 
-[node name="Label" type="Label" parent="InventoryMasterBox/Panel/TextureRect"]
+[node name="Item Name" type="Label" parent="InventoryMasterBox/Panel/TextureRect"]
 custom_minimum_size = Vector2(35, 10)
 layout_mode = 0
 offset_left = 6.0

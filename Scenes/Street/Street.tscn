@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=22 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dirhn7ruate6n" path="res://Art/People/coupleforgame.png" id="3_tdyoq"]
 [ext_resource type="Texture2D" uid="uid://brhrljg2vb0wt" path="res://Art/People/fishermanoutside.png" id="3_y3knp"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_g0xs2"]
+[ext_resource type="Texture2D" uid="uid://co6ho6ftdyv10" path="res://Art/People/PeopleDialogueBox/depressed_guy.png" id="4_yutqd"]
 [ext_resource type="Texture2D" uid="uid://bdiuf7vjlk1t2" path="res://Art/People/coupleforgame1.png" id="6_u4jgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbni7"]
@@ -138,16 +139,14 @@ texture = ExtResource("3_rcjws")
 [node name="Nick" type="Area2D" parent="."]
 position = Vector2(4477, 306)
 
-[node name="ColorRect" type="ColorRect" parent="Nick"]
-offset_left = -38.0
-offset_top = 34.0
-offset_right = 46.0
-offset_bottom = 166.0
-color = Color(1, 0.560784, 1, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nick"]
 position = Vector2(4, 99.5)
 shape = SubResource("RectangleShape2D_qlw4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Nick"]
+position = Vector2(1, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_yutqd")
 
 [node name="CoupleMan" type="Area2D" parent="."]
 position = Vector2(4109, 363)

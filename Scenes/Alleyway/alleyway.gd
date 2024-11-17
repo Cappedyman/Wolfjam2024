@@ -41,7 +41,7 @@ func renderDialogueBox() -> void:
 	var cat = get_node("Cat")
 	dialogue.position = Vector2(cat.position.x - 300, cat.position.y)
 	
-	if StaticInventory.checkForID(StaticData.get_item_id_by_name("key")) and StaticQuestProgress.hoboQuest == 1:
+	if StaticInventory.checkForID(StaticData.get_item_id_by_name("key")) and StaticQuestProgress.hoboQuest == 0:
 		StaticQuestProgress.progressQuest("hobo")
 	
 	dialogue.setNpc("hobo") # assigns proper dialogues
@@ -74,7 +74,7 @@ func _on_hobo_body_entered(body: Node2D) -> void:
 func _on_hobo_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 			canTalkToHobo = false
-
+	
 
 func showInteractIcon() -> void:
 	interactIcon.visible = true
@@ -85,4 +85,5 @@ func hideInteractIcon() -> void:
 
 func _on_key_body_entered(body: Node2D) -> void:
 	StaticInventory.add_item("0")
+	StaticQuestProgress.progressQuest("hobo")
 	$Key.queue_free()
