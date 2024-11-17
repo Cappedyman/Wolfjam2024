@@ -1,57 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://urn77goeroje"]
+[gd_scene load_steps=10 format=3 uid="uid://urn77goeroje"]
 
 [ext_resource type="Script" path="res://Scenes/711/711.gd" id="1_sdci2"]
+[ext_resource type="Texture2D" uid="uid://0ns8s3x1qfbe" path="res://Art/1422conveniencestore.png" id="2_lrw7q"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_myxuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm5e6"]
-size = Vector2(58, 116)
+size = Vector2(129, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2cha"]
 size = Vector2(2314, 170)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cm2o8"]
+size = Vector2(381, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de4u7"]
+size = Vector2(168, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw4cf"]
+size = Vector2(197.5, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfhsi"]
+size = Vector2(127, 12)
+
 [node name="711" type="Node2D"]
+position = Vector2(83, 752)
 script = ExtResource("1_sdci2")
 
+[node name="1422Conveniencestore" type="Sprite2D" parent="."]
+position = Vector2(494.75, -380.125)
+scale = Vector2(0.641389, 0.626875)
+texture = ExtResource("2_lrw7q")
+
 [node name="711DoorReverse" type="Area2D" parent="."]
-position = Vector2(104, 369)
+position = Vector2(11, -516)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="711DoorReverse"]
-position = Vector2(2, 68)
+position = Vector2(7.5, 128)
 shape = SubResource("RectangleShape2D_pm5e6")
-
-[node name="ColorRect" type="ColorRect" parent="711DoorReverse"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(622, 581)
+position = Vector2(555, -177)
 shape = SubResource("RectangleShape2D_g2cha")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -532.0
-offset_top = 498.0
-offset_right = 1780.0
-offset_bottom = 990.0
-color = Color(1, 0.653245, 0.783397, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 151.0
-offset_top = 166.0
-offset_right = 364.0
-offset_bottom = 235.0
-theme_override_font_sizes/font_size = 50
-text = "711"
-metadata/_edit_use_anchors_ = true
-
 [node name="Cat" parent="." instance=ExtResource("2_myxuc")]
-position = Vector2(278, 441)
+position = Vector2(-16, -287)
+
+[node name="counter" type="StaticBody2D" parent="."]
+position = Vector2(730, -454)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter"]
+position = Vector2(149.5, 47)
+shape = SubResource("RectangleShape2D_cm2o8")
+one_way_collision = true
+
+[node name="dogs" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dogs"]
+position = Vector2(557, -479)
+shape = SubResource("RectangleShape2D_de4u7")
+one_way_collision = true
+
+[node name="colors" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colors"]
+position = Vector2(392, -590)
+shape = SubResource("RectangleShape2D_pw4cf")
+one_way_collision = true
+
+[node name="drank" type="StaticBody2D" parent="."]
+position = Vector2(147, 45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drank"]
+position = Vector2(57, -614)
+shape = SubResource("RectangleShape2D_rfhsi")
+one_way_collision = true
 
 [connection signal="body_entered" from="711DoorReverse" to="." method="_on_door_reverse_body_entered"]
 [connection signal="body_exited" from="711DoorReverse" to="." method="_on_door_reverse_body_exited"]

@@ -36,13 +36,16 @@ func _ready() -> void:
 
 	match LocationStack.peek():
 		"FishDoor":
-			Cat.position = Vector2(480, 440)
+			Cat.position = Vector2(2500, 500)
 			print("fish spawn")
 		"AlleywayDoor":
+			Cat.position = Vector2(3000, 500)
 			print("alleyway spawn")
 		"PharmacyDoor":
+			Cat.position = Vector2(4747, 500)
 			print("pharmacy spawn")
 		"711Door":
+			Cat.position = Vector2(3500, 500)
 			print("711 spawn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

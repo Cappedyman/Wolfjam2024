@@ -18,7 +18,6 @@ offset_bottom = 38.0
 mouse_filter = 1
 
 [node name="item_display" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(13, 10)
 scale = Vector2(0.8, 0.8)
 region_rect = Rect2(20, 20, 20, 20)
