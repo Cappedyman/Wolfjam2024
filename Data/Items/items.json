@@ -6,22 +6,22 @@
 	},
 	"1": {
 		"name": "Fish",
-		"image": "image path",
+		"image": "res://Images/fish.png",
 		"description": "Mmmm so yummy. I almost wanna eat it for myself >:)"
 	},
 	"2": {
 		"name": "Rose",
-		"image": "image path",
+		"image": "res://Images/rose.png",
 		"description": "YOUCH, this thing stings!! :O"
 	},
 	"3": {
 		"name": "ID",
-		"image": "image path",
+		"image": "res://Images/idcard.png",
 		"description": "blah blah blah blah blah"
 	},
 	"4": {
 		"name": "Antidepressants",
-		"image": "image path",
+		"image": "res://Images/rx.png",
 		"description": "Meow"
 	}
 }
