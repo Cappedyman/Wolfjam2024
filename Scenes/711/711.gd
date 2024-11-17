@@ -37,3 +37,8 @@ func _on_moneyman_body_entered(body: Node2D) -> void:
 func _on_moneyman_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 			canTalkToMoneyMan = false
+
+
+func _on_id_card_body_entered(body: Node2D) -> void:
+	StaticInventory.add_item("3")
+	$IDCard.queue_free()
