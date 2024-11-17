@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6qjn4i8m3453"]
+[gd_scene load_steps=13 format=3 uid="uid://c6qjn4i8m3453"]
 
 [ext_resource type="Script" path="res://Scenes/Alleyway/alleyway.gd" id="1_kmli6"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_lfaqh"]
 [ext_resource type="Texture2D" uid="uid://ca7vusyqyjan0" path="res://Art/alleyintro.png" id="2_y3awx"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_dpb6b"]
+[ext_resource type="Texture2D" uid="uid://cdj5wpvsuv3ix" path="res://Art/People/floristandhobo - Copy.png" id="5_hm2uw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rw7so"]
 size = Vector2(81.5, 144)
@@ -42,14 +43,6 @@ position = Vector2(589, 264)
 position = Vector2(-190, 73)
 shape = SubResource("RectangleShape2D_rw7so")
 
-[node name="ColorRect" type="ColorRect" parent="Hobo"]
-offset_left = -231.0
-offset_top = -1.0
-offset_right = -150.0
-offset_bottom = 145.0
-color = Color(1, 0.408258, 0.878451, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="AlleywayDoorReverse" type="Area2D" parent="."]
 position = Vector2(175, 181)
 
@@ -62,9 +55,6 @@ shape = SubResource("RectangleShape2D_jy4os")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(475, 511)
 shape = SubResource("RectangleShape2D_t5rac")
-
-[node name="Cat" parent="." instance=ExtResource("1_lfaqh")]
-position = Vector2(131, 385)
 
 [node name="box2" type="StaticBody2D" parent="."]
 position = Vector2(648, 216)
@@ -90,6 +80,7 @@ shape = SubResource("RectangleShape2D_g1ej4")
 one_way_collision = true
 
 [node name="InvUi" parent="." instance=ExtResource("4_dpb6b")]
+visible = false
 offset_left = 307.0
 offset_top = 6.0
 offset_right = 307.0
@@ -108,6 +99,14 @@ position = Vector2(-49, -227)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
 position = Vector2(8, 566.75)
 shape = SubResource("RectangleShape2D_3auaa")
+
+[node name="Floristandhobo-Copy" type="Sprite2D" parent="."]
+position = Vector2(403, 279)
+scale = Vector2(0.187788, 0.186333)
+texture = ExtResource("5_hm2uw")
+
+[node name="Cat" parent="." instance=ExtResource("1_lfaqh")]
+position = Vector2(131, 385)
 
 [connection signal="body_entered" from="Hobo" to="." method="_on_hobo_body_entered"]
 [connection signal="body_exited" from="Hobo" to="." method="_on_hobo_body_exited"]

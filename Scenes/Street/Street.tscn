@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=21 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
 [ext_resource type="Texture2D" uid="uid://gggw03b3a6en" path="res://Art/streetmaincat.png" id="2_uc866"]
+[ext_resource type="Texture2D" uid="uid://cf47xjo3kkdv5" path="res://Art/People/floristandhobo.png" id="3_rcjws"]
 [ext_resource type="Texture2D" uid="uid://dirhn7ruate6n" path="res://Art/People/coupleforgame.png" id="3_tdyoq"]
 [ext_resource type="Texture2D" uid="uid://brhrljg2vb0wt" path="res://Art/People/fishermanoutside.png" id="3_y3knp"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_g0xs2"]
@@ -24,7 +25,7 @@ size = Vector2(101, 1070.5)
 size = Vector2(87, 188)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjh0y"]
-size = Vector2(57, 134)
+size = Vector2(57, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlw4b"]
 size = Vector2(93, 135)
@@ -126,14 +127,13 @@ shape = SubResource("RectangleShape2D_hcr2x")
 position = Vector2(233, 306)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlowerLady"]
-position = Vector2(6, 77)
+position = Vector2(6, 72)
 shape = SubResource("RectangleShape2D_tjh0y")
 
-[node name="ColorRect" type="ColorRect" parent="FlowerLady"]
-offset_left = -20.0
-offset_top = 12.0
-offset_right = 30.0
-offset_bottom = 63.0
+[node name="Floristandhobo" type="Sprite2D" parent="FlowerLady"]
+position = Vector2(17, -9)
+scale = Vector2(0.176439, 0.174871)
+texture = ExtResource("3_rcjws")
 
 [node name="Nick" type="Area2D" parent="."]
 position = Vector2(4477, 306)

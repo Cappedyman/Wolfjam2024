@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgdx8yk43drsc"]
+
+[ext_resource type="FontFile" uid="uid://cso2x74s765ww" path="res://Fonts/Christmas Chalk.ttf" id="1_e353p"]
+
+[node name="EndCredits" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -13.0
+offset_right = 1163.0
+offset_bottom = 664.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 323.0
+offset_top = 254.0
+offset_right = 821.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_e353p")
+theme_override_font_sizes/font_size = 30
+text = "Andrew Keyser - Programming
+"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 405.0
+offset_right = 834.0
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_e353p")
+theme_override_font_sizes/font_size = 30
+text = "Jackie Dennehy - Art & Design"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 327.0
+offset_right = 883.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_e353p")
+theme_override_font_sizes/font_size = 30
+text = "Caleb Clapper - Programming & Music"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 443.0
+offset_top = 63.0
+offset_right = 723.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_e353p")
+theme_override_font_sizes/font_size = 75
+text = "Credits"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 327.0
+offset_top = 480.0
+offset_right = 830.0
+offset_bottom = 544.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_e353p")
+theme_override_font_sizes/font_size = 30
+text = "Thomas Jackson - Programming
+"
