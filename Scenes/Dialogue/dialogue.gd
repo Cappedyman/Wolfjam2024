@@ -27,7 +27,7 @@ func _on_continue_button_up() -> void:
 	elif nextCommand is String:   # change dialogue
 		_dialogueText.text = nextCommand
 	else:                         # signals end of dialogue
-		get_parent()._dialogue_finished()
+		get_parent()._dialogue_finished(dialogueDict["name"])
 
 func setSpeaker(info: Dictionary) -> void: # Changes speakers name and Photo
 	_name.text = info["name"]
@@ -38,6 +38,9 @@ func setNpc(name: String) -> void:
 	questProgress = StaticQuestProgress.getProgression(name)
 
 func create_queue() -> void:
+	if dialogueDict["name"].to_lower() == "fleurist":
+		questProgress = StaticQuestProgress.coupleQuest # fleurist follows same progression as couple
+		
 	match questProgress:
 		0:
 			outputQueue = lex(dialogueDict["pre-quest-dialogue"])

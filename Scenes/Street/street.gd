@@ -10,8 +10,11 @@ var canTalkToFishMonger: bool = false;
 var canTalkToHopelessRomantic: bool = false;
 var canTalkToDepressedNick: bool = false;
 
+var dialogue
+
 @onready var Cat = get_node("Cat")
 @onready var interactIconScene = load("res://Scenes/InteractIcon/InteractIcon.tscn")
+@onready var dialogueBox = load("res://Scenes/Dialogue/dialogue.tscn")
 
 var interactIcon
 var camera # Camera2D variable to store the camera instance
@@ -76,19 +79,54 @@ func _process(delta: float) -> void:
 			LocationStack.push("711Door")
 			get_tree().change_scene_to_file("res://Scenes/711/711.tscn")
 
-	if canTalkToFishMonger and Input.is_action_just_pressed("Interact"):
-		pass
-			
-	if canTalkToFlowerLady and Input.is_action_just_pressed("Interact"):
-		pass
-		
-	if canTalkToHopelessRomantic and Input.is_action_just_pressed("Interact"):
-		pass
-		
-	if canTalkToDepressedNick and Input.is_action_just_pressed("Interact"):
-		pass
+	if canTalkToFishMonger and Input.is_action_just_pressed("Interact"): # Dialogue for fish-guy
+		get_tree().paused = true
+		renderDialogueBox("fish-guy")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
 
+	if canTalkToFlowerLady and Input.is_action_just_pressed("Interact"): # Dialogue for fleurist
+		get_tree().paused = true
+		renderDialogueBox("fleurist")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
 
+	if canTalkToHopelessRomantic and Input.is_action_just_pressed("Interact"): # Dialogue for couple
+		get_tree().paused = true
+		renderDialogueBox("couple")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
+
+	if canTalkToDepressedNick and Input.is_action_just_pressed("Interact"): # Dialogue for depressed-man
+		get_tree().paused = true
+		renderDialogueBox("depressed-man")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
+
+func renderDialogueBox(name: String) -> void:
+	dialogue = dialogueBox.instantiate()
+	var cat = get_node("Cat")
+	dialogue.position = Vector2(cat.position.x - 300, cat.position.y - 250)
+	
+	var questItem
+	match name:
+		"fish-guy":
+			questItem = "fish"
+		"fleurist":
+			questItem = "rose"
+		"couple":
+			questItem = "rose"
+		"depressed-man":
+			questItem = "antidepressants"
+	
+	if StaticInventory.checkForID(StaticData.get_item_id_by_name(questItem)) and StaticQuestProgress.getProgression(name) == 1:
+		StaticQuestProgress.progressQuest(name)
+	
+	dialogue.setNpc(name) # assigns proper dialogues
+	dialogue.create_queue() # creates the output queue for the dialogue box
+	
+	add_child(dialogue)
+
+func _dialogue_finished(name: String):
+	dialogue.queue_free()
+	get_tree().paused = false
+	# implement quest progression accordingly
 
 func showInteractIcon() -> void:
 	interactIcon.visible = true
