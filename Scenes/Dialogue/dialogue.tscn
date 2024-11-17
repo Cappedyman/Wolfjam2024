@@ -38,6 +38,8 @@ offset_top = 15.0
 offset_right = 154.0
 offset_bottom = 144.0
 
+[node name="Sprite2D" type="Sprite2D" parent="Box/Image"]
+
 [node name="ColorRect" type="ColorRect" parent="Box"]
 z_index = -1
 layout_mode = 0

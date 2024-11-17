@@ -2,6 +2,7 @@ extends Control
 
 @onready var _name: Label = $Box/Name
 @onready var _dialogueText: Label = $Box/DialogueText
+@onready var _imageText: Sprite2D = $Box/Image/Sprite2D
 
 # tells us what stage in the quest we are
 var questProgress: int = -1
@@ -24,6 +25,7 @@ func _on_continue_button_up() -> void:
 	if nextCommand is Dictionary: # change image and name
 		_name.text = nextCommand["name"]
 		_dialogueText.text = outputQueue.pop_front() #if we just changed the name then the next command will be a String
+		_imageText.texture = load(nextCommand["image"]) 
 	elif nextCommand is String:   # change dialogue
 		_dialogueText.text = nextCommand
 	else:                         # signals end of dialogue
@@ -72,9 +74,9 @@ func lex(dialogue: String) -> Array:
 					dialogueBuilder += ch
 		else:
 			if ch == 'n': # we switch to the npc's image and name
-				queue.push_back({"name": dialogueDict["name"]})
+				queue.push_back({"name": dialogueDict["name"], "image": dialogueDict["image"]})
 			else:         # we switch to the cat's image and name
-				queue.push_back({"name": "Cat"})
+				queue.push_back({"name": "Cat", "image": "res://Art/People/PeopleDialogueBox/cat-dbox.png"})
 			ignore = false; # reset the tag search
 	
 	if !dialogueBuilder.is_empty(): # appends final bit of dialogue if applicable
