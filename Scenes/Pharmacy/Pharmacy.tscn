@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://02qf3kv7g5s8"]
 
 [ext_resource type="Script" path="res://Scenes/Pharmacy/pharmacy.gd" id="1_wxqtv"]
-[ext_resource type="Texture2D" uid="uid://lhu5rnmodtox" path="res://Art/pharmacycvgreens.png" id="2_a37tr"]
+[ext_resource type="Texture2D" uid="uid://d0dovgnb4yjlb" path="res://Art/pharmacycvgreens.png.png" id="2_n4o7b"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_th56s"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_ps0eh"]
 
@@ -27,16 +27,16 @@ size = Vector2(111, 105)
 position = Vector2(117, 835)
 script = ExtResource("1_wxqtv")
 
-[node name="Pharmacycvgreens" type="Sprite2D" parent="."]
-position = Vector2(461, -475.25)
-scale = Vector2(0.643333, 0.605417)
-texture = ExtResource("2_a37tr")
+[node name="Pharmacycvgreens_png" type="Sprite2D" parent="."]
+position = Vector2(460, -466.25)
+scale = Vector2(0.643889, 0.617083)
+texture = ExtResource("2_n4o7b")
 
 [node name="PharmacyDoorReverse" type="Area2D" parent="."]
 position = Vector2(17, -656)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PharmacyDoorReverse"]
-position = Vector2(-6, 175)
+position = Vector2(-4, 191)
 shape = SubResource("RectangleShape2D_ocsmi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -75,7 +75,7 @@ one_way_collision = true
 position = Vector2(-246, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stool/stool"]
-position = Vector2(0, 27)
+position = Vector2(9, 35)
 shape = SubResource("RectangleShape2D_y1r1u")
 one_way_collision = true
 
@@ -100,6 +100,7 @@ position = Vector2(-12.5, 43.5)
 shape = SubResource("RectangleShape2D_sjn14")
 
 [node name="InvUi" parent="." instance=ExtResource("4_ps0eh")]
+visible = false
 offset_left = 197.0
 offset_top = -747.0
 offset_right = 197.0

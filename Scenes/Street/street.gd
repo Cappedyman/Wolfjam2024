@@ -34,6 +34,9 @@ func _ready() -> void:
 	camera.limit_bottom = 190
 	camera.limit_right = 5000
 	
+	if StaticInventory.checkForID("2"):
+		$Rose.queue_free()
+	
 
 	match LocationStack.peek():
 		"FishDoor":
@@ -190,6 +193,8 @@ func _on_rose_body_entered(body: Node2D) -> void:
 	StaticInventory.add_item("2")
 	$Rose.queue_free()
 	print(StaticInventory.getInv())
+	
+
 
 
 

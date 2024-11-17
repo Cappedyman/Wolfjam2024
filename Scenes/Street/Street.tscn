@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ds3xw7ve4kou5"]
+[gd_scene load_steps=20 format=3 uid="uid://ds3xw7ve4kou5"]
 
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_sau32"]
 [ext_resource type="Script" path="res://Scenes/Street/street.gd" id="1_vharl"]
 [ext_resource type="Texture2D" uid="uid://gggw03b3a6en" path="res://Art/streetmaincat.png" id="2_uc866"]
+[ext_resource type="Texture2D" uid="uid://dirhn7ruate6n" path="res://Art/People/coupleforgame.png" id="3_tdyoq"]
+[ext_resource type="Texture2D" uid="uid://brhrljg2vb0wt" path="res://Art/People/fishermanoutside.png" id="3_y3knp"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_g0xs2"]
+[ext_resource type="Texture2D" uid="uid://bdiuf7vjlk1t2" path="res://Art/People/coupleforgame1.png" id="6_u4jgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbni7"]
 size = Vector2(5409, 170)
@@ -18,7 +21,7 @@ size = Vector2(32.5, 34)
 size = Vector2(101, 1070.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcr2x"]
-size = Vector2(87, 100)
+size = Vector2(87, 188)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjh0y"]
 size = Vector2(57, 134)
@@ -27,7 +30,7 @@ size = Vector2(57, 134)
 size = Vector2(93, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixgy"]
-size = Vector2(78, 93.5)
+size = Vector2(78, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8id0r"]
 size = Vector2(66, 88.5)
@@ -52,7 +55,7 @@ texture = ExtResource("2_uc866")
 [node name="Temp Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Temp Floor"]
-position = Vector2(2515.5, 634)
+position = Vector2(2517, 606)
 shape = SubResource("RectangleShape2D_kbni7")
 
 [node name="711Door" type="Area2D" parent="."]
@@ -116,15 +119,8 @@ shape = SubResource("RectangleShape2D_bv6n1")
 position = Vector2(2197, 339)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FishMonger"]
-position = Vector2(1, 73)
+position = Vector2(1, 30)
 shape = SubResource("RectangleShape2D_hcr2x")
-
-[node name="ColorRect" type="ColorRect" parent="FishMonger"]
-offset_left = -44.0
-offset_top = 22.0
-offset_right = 45.0
-offset_bottom = 126.0
-color = Color(0.223529, 1, 1, 1)
 
 [node name="FlowerLady" type="Area2D" parent="."]
 position = Vector2(233, 306)
@@ -157,18 +153,13 @@ shape = SubResource("RectangleShape2D_qlw4b")
 position = Vector2(4109, 363)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoupleMan"]
-position = Vector2(1, 65.25)
+position = Vector2(26, 21)
 shape = SubResource("RectangleShape2D_8ixgy")
 
-[node name="ColorRect" type="ColorRect" parent="CoupleMan"]
-offset_left = -44.0
-offset_top = 20.0
-offset_right = 43.0
-offset_bottom = 113.0
-color = Color(1, 0.270588, 0.454902, 1)
-
-[node name="Cat" parent="." instance=ExtResource("1_sau32")]
-position = Vector2(2927, 448)
+[node name="Coupleforgame" type="Sprite2D" parent="CoupleMan"]
+position = Vector2(21, 15)
+scale = Vector2(0.212963, 0.213167)
+texture = ExtResource("3_tdyoq")
 
 [node name="fire" type="StaticBody2D" parent="."]
 
@@ -199,6 +190,19 @@ shape = SubResource("RectangleShape2D_4o4v2")
 one_way_collision = true
 
 [node name="InvUi" parent="." instance=ExtResource("4_g0xs2")]
+
+[node name="Coupleforgame1" type="Sprite2D" parent="."]
+position = Vector2(3959.63, 256.125)
+scale = Vector2(0.195833, 0.186833)
+texture = ExtResource("6_u4jgj")
+
+[node name="Fishermanoutside" type="Sprite2D" parent="."]
+position = Vector2(2197, 348)
+scale = Vector2(0.244946, 0.235521)
+texture = ExtResource("3_y3knp")
+
+[node name="Cat" parent="." instance=ExtResource("1_sau32")]
+position = Vector2(2927, 448)
 
 [connection signal="body_entered" from="711Door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="711Door" to="." method="_on_door_body_exited"]

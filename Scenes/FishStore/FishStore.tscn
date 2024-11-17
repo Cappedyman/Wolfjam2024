@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfnc465md0it"]
+[gd_scene load_steps=12 format=3 uid="uid://bfnc465md0it"]
 
 [ext_resource type="Script" path="res://Scenes/FishStore/fish_store.gd" id="1_3ws4g"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="1_7iwxt"]
 [ext_resource type="Texture2D" uid="uid://c2yu7u4s8p5j5" path="res://Art/fishshopmain.png" id="2_cg3sf"]
 [ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="2_yvnum"]
+[ext_resource type="Texture2D" uid="uid://bjupgs5qsbav6" path="res://Art/People/fishshopguy.png" id="5_6j68p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8d05"]
 size = Vector2(87, 153)
@@ -28,6 +29,7 @@ position = Vector2(3, 15)
 script = ExtResource("1_3ws4g")
 
 [node name="InvUi" parent="." instance=ExtResource("2_yvnum")]
+visible = false
 offset_left = 297.0
 offset_top = 44.0
 offset_right = 297.0
@@ -58,9 +60,6 @@ shape = SubResource("RectangleShape2D_d3n7x")
 position = Vector2(618, 540)
 shape = SubResource("RectangleShape2D_nxomp")
 
-[node name="Cat" parent="." instance=ExtResource("1_7iwxt")]
-position = Vector2(103, 385)
-
 [node name="counter" type="StaticBody2D" parent="."]
 position = Vector2(747, 362)
 
@@ -88,6 +87,14 @@ position = Vector2(1256, 51)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall"]
 position = Vector2(8, 566.75)
 shape = SubResource("RectangleShape2D_8npld")
+
+[node name="Fishshopguy" type="Sprite2D" parent="."]
+position = Vector2(966, 204)
+scale = Vector2(0.262083, 0.262917)
+texture = ExtResource("5_6j68p")
+
+[node name="Cat" parent="." instance=ExtResource("1_7iwxt")]
+position = Vector2(103, 385)
 
 [connection signal="body_entered" from="FreezerDoor" to="." method="_on_freezer_door_body_entered"]
 [connection signal="body_exited" from="FreezerDoor" to="." method="_on_freezer_door_body_exited"]
