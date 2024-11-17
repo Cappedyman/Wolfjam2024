@@ -1,7 +1,7 @@
 {
 	"0": {
 		"name": "Hobo",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/hobo-dbox.png",
 		"pre-quest-dialogue": 
 			"@nHmm... what's this?\n@cMeow (Curious)\n@nA stray... how unfortunate.\nWell it seems we are both stuck in this alley.\n@cMeow (Sad)\n@nHow about this if you can find my key, I will help you find a family\n@cMeow (Excited)\n@nThen it's a deal! The last place I saw my key was near that dumpster.",
 		"during-quest-dialogue":
@@ -13,7 +13,7 @@
 	},
 	"1": {
 		"name": "Fish-Guy",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/fishermanoutside-dbox.png",
 		"pre-quest-dialogue": 
 			"@nOh jeez, what am I gonna do!\nI spent all this time fishing and I have nothing to show my family...\n@cMeow?\n@nWhat...?\nOH HEY, YOU'RE A CAT!\nThat means you know where to get fish right?!\n@cMeow meow meow meow meow meow\n@nYeah yeah whatever, anyway if you happen to find a fish can you bring it to me please?",
 		"during-quest-dialogue": 
@@ -25,7 +25,7 @@
 	},
 	"2": {
 		"name": "Couple",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/coupleforgame-dbox.png",
 		"pre-quest-dialogue": 
 			"@nDangit! My partner's favorite flower is a red rose, but the fleurist is all out...\nI give up\n@cMeow?\n@nWhat was that? You're willing to help me!\n@cMeow :3\n@nThank you so much!",
 		"during-quest-dialogue": 
@@ -73,7 +73,7 @@
 	},
 	"6": {
 		"name": "Fleurist",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/florist-dbox.png",
 		"pre-quest-dialogue": 
 			"@nOh ho ho, aren't you a cute one\n@cMeow :3",
 		"during-quest-dialogue": 
