@@ -45,7 +45,7 @@ func renderDialogueBox() -> void:
 	
 	add_child(dialogue)
 
-func _dialogue_finished():
+func _dialogue_finished(name: String):
 	dialogue.queue_free()
 	get_tree().paused = false
 	if StaticQuestProgress.hoboQuest == 0 or StaticQuestProgress.hoboQuest == 2: # we just got the quest or just finished it

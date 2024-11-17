@@ -129,7 +129,9 @@ func renderDialogueBox(name: String) -> void:
 func _dialogue_finished(name: String):
 	dialogue.queue_free()
 	get_tree().paused = false
-	# implement quest progression accordingly
+	if name.to_lower() != "fleurist":
+		if StaticQuestProgress.getProgression(name) == 0 or StaticQuestProgress.getProgression(name) == 2:
+			StaticQuestProgress.progressQuest(name)
 
 func showInteractIcon() -> void:
 	interactIcon.visible = true
