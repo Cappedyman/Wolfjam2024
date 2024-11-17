@@ -14,8 +14,10 @@ func updateQuests():
 		match prog_level:
 			0:
 				ref.texture = load("res://Images/LockedQuest.png")
+				ref.get_child(0).visible = false
 			1:
 				ref.texture = load("res://Images/33.png")
+				ref.get_child(0).visible = true
 			2:
 				ref.texture = load("res://Images/66.png")
 			3:

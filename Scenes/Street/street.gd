@@ -61,7 +61,11 @@ func _process(delta: float) -> void:
 	print("Cat's current position:", catPosition)
 	
 	# Update position of the menu
-	$InvUi.position = Vector2(Cat.position.x - 200, Cat.position.y - 450 )
+	var default_viewport = get_viewport()
+	print(default_viewport.size)
+	print(catPosition.x)
+	$InvUi.position = Vector2(catPosition.x - default_viewport.size.x + 900,  default_viewport.size.y - 600)
+
 	
 	if canEnterFishDoor:
 		var fishDoorPosition = $FishDoor.position
