@@ -3,11 +3,11 @@
 		"name": "Hobo",
 		"image": "res://Art/People/PeopleDialogueBox/hobo-dbox.png",
 		"pre-quest-dialogue": 
-			"@nHmm... what's this?\n@cMeow (Curious)\n@nA stray... how unfortunate.\nWell it seems we are both stuck in this alley.\n@cMeow (Sad)\n@nHow about this if you can find my key, I will help you find a family\n@cMeow (Excited)\n@nThen it's a deal! The last place I saw my key was near that dumpster.",
+			"@nHmm... what's this?\n@cMeow\n@nA stray... how unfortunate.\nWell it seems we are both stuck in this alley.\n@cMeow\n@nHow about this if you can find my key, I will help you find a family\n@cMeow\n@nThen it's a deal! The last place I saw my key was near that dumpster.",
 		"during-quest-dialogue":
 			"@nGo get that key and then we can talk about finding you a family, I think I left it somewhere around the dumpster",
 		"post-quest-dialogue":
-			"@nGood job! Now we can leave this alley!\n@cMeow (Short)\n@n...What?\n@cMeow (Short)\n@nAh yes a family, well you don't actually need one now do you?\n@cMeow (Angry)\n@nFine fine, however, there's one condition.\nYou need to make three friends before I can find you a family\n@cMeow (Annoyed)\n@nIt can't be that hard can it?",
+			"@nGood job! Now we can leave this alley!\n@cMeow\n@n...What?\n@cMeow\n@nAh yes a family, well you don't actually need one now do you?\n@cMeow\n@nFine fine, however, there's one condition.\nYou need to make three friends before I can find you a family\n@cMeow\n@nIt can't be that hard can it?",
 		"residual-dialogue":
 			"@nGo on now, you still need to find friends!"
 	},
