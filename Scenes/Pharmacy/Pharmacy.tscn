@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://02qf3kv7g5s8"]
+[gd_scene load_steps=11 format=3 uid="uid://02qf3kv7g5s8"]
 
 [ext_resource type="Script" path="res://Scenes/Pharmacy/pharmacy.gd" id="1_wxqtv"]
 [ext_resource type="Texture2D" uid="uid://lhu5rnmodtox" path="res://Art/pharmacycvgreens.png" id="2_a37tr"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_th56s"]
+[ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_ps0eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocsmi"]
 size = Vector2(186, 330)
@@ -96,6 +97,12 @@ offset_bottom = 94.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="moneyMan"]
 position = Vector2(-12.5, 43.5)
 shape = SubResource("RectangleShape2D_sjn14")
+
+[node name="InvUi" parent="." instance=ExtResource("4_ps0eh")]
+offset_left = 197.0
+offset_top = -747.0
+offset_right = 197.0
+offset_bottom = -747.0
 
 [connection signal="body_entered" from="PharmacyDoorReverse" to="." method="_on_pharmacy_door_reverse_body_entered"]
 [connection signal="body_exited" from="PharmacyDoorReverse" to="." method="_on_pharmacy_door_reverse_body_exited"]
