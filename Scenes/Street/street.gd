@@ -10,14 +10,14 @@ var canTalkToFishMonger: bool = false;
 var canTalkToHopelessRomantic: bool = false;
 var canTalkToDepressedNick: bool = false;
 
-var dialogue
-
 @onready var Cat = get_node("Cat")
 @onready var interactIconScene = load("res://Scenes/InteractIcon/InteractIcon.tscn")
 @onready var dialogueBox = load("res://Scenes/Dialogue/dialogue.tscn")
 
+var catPosition: Vector2
 var interactIcon
-var camera # Camera2D variable to store the camera instance
+var camera 
+var dialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +32,8 @@ func _ready() -> void:
 	camera.limit_left = 0
 	camera.limit_top = 0
 	camera.limit_bottom = 190
-
+	camera.limit_right = 5000
+	
 
 	match LocationStack.peek():
 		"FishDoor":
@@ -47,9 +48,18 @@ func _ready() -> void:
 		"711Door":
 			Cat.position = Vector2(3500, 500)
 			print("711 spawn")
+			
+	catPosition = Cat.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	catPosition = Cat.position
+	print("Cat's current position:", catPosition)
+	
+	# Update position of the menu
+	$InvUi.position = Vector2(Cat.position.x - 200, Cat.position.y - 450 )
+	
 	if canEnterFishDoor:
 		var fishDoorPosition = $FishDoor.position
 		interactIcon.position = Vector2(fishDoorPosition.x, fishDoorPosition.y - 150)
@@ -221,3 +231,5 @@ func _on_couple_man_body_entered(body: Node2D) -> void:
 func _on_couple_man_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 		canTalkToHopelessRomantic = false
+		
+		

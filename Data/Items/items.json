@@ -1,7 +1,7 @@
 {
 	"0": {
 		"name": "Rusted Key",
-		"image": "res://Images/ItemSlot.png",
+		"image": "res://Images/RustedKey.png",
 		"description": "Brown, rusted key. Very stinky :("
 	},
 	"1": {
