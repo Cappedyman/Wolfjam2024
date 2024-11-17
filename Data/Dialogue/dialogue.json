@@ -61,7 +61,7 @@
 	},
 	"5": {
 		"name": "Pharmasist",
-		"image": "image path",
+		"image": "res://Art/People/PeopleDialogueBox/pharmacist-dbox.png",
 		"pre-quest-dialogue": 
 			"@cMeow\n@nYeah, I'm gonna need to see an ID first\n@c>:3",
 		"during-quest-dialogue": 
