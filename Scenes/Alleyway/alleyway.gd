@@ -34,6 +34,9 @@ func _process(delta: float) -> void:
 	if StaticInventory.checkForID("0"):
 		if $Key:
 			$Key.queue_free()
+	
+	if StaticInventory.checkForID("0"):
+		StaticQuestProgress.hoboQuest = 3
 
 
 func renderDialogueBox() -> void:
