@@ -12,9 +12,12 @@ var canTalkToDepressedNick: bool = false;
 
 @onready var Cat = get_node("Cat")
 @onready var interactIconScene = load("res://Scenes/InteractIcon/InteractIcon.tscn")
+@onready var dialogueBox = load("res://Scenes/Dialogue/dialogue.tscn")
 
+var catPosition: Vector2
 var interactIcon
-var camera # Camera2D variable to store the camera instance
+var camera 
+var dialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +32,8 @@ func _ready() -> void:
 	camera.limit_left = 0
 	camera.limit_top = 0
 	camera.limit_bottom = 190
-
+	camera.limit_right = 5000
+	
 
 	match LocationStack.peek():
 		"FishDoor":
@@ -44,9 +48,18 @@ func _ready() -> void:
 		"711Door":
 			Cat.position = Vector2(3500, 500)
 			print("711 spawn")
+			
+	catPosition = Cat.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	catPosition = Cat.position
+	print("Cat's current position:", catPosition)
+	
+	# Update position of the menu
+	$InvUi.position = Vector2(Cat.position.x - 200, Cat.position.y - 450 )
+	
 	if canEnterFishDoor:
 		var fishDoorPosition = $FishDoor.position
 		interactIcon.position = Vector2(fishDoorPosition.x, fishDoorPosition.y - 150)
@@ -79,19 +92,56 @@ func _process(delta: float) -> void:
 			LocationStack.push("711Door")
 			get_tree().change_scene_to_file("res://Scenes/711/711.tscn")
 
-	if canTalkToFishMonger and Input.is_action_just_pressed("Interact"):
-		pass
-			
-	if canTalkToFlowerLady and Input.is_action_just_pressed("Interact"):
-		pass
-		
-	if canTalkToHopelessRomantic and Input.is_action_just_pressed("Interact"):
-		pass
-		
-	if canTalkToDepressedNick and Input.is_action_just_pressed("Interact"):
-		pass
+	if canTalkToFishMonger and Input.is_action_just_pressed("Interact"): # Dialogue for fish-guy
+		get_tree().paused = true
+		renderDialogueBox("fish-guy")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
 
+	if canTalkToFlowerLady and Input.is_action_just_pressed("Interact"): # Dialogue for fleurist
+		get_tree().paused = true
+		renderDialogueBox("fleurist")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
 
+	if canTalkToHopelessRomantic and Input.is_action_just_pressed("Interact"): # Dialogue for couple
+		get_tree().paused = true
+		renderDialogueBox("couple")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
+
+	if canTalkToDepressedNick and Input.is_action_just_pressed("Interact"): # Dialogue for depressed-man
+		get_tree().paused = true
+		renderDialogueBox("depressed-man")
+		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
+
+func renderDialogueBox(name: String) -> void:
+	dialogue = dialogueBox.instantiate()
+	var cat = get_node("Cat")
+	dialogue.position = Vector2(cat.position.x - 300, cat.position.y - 250)
+	
+	var questItem
+	match name:
+		"fish-guy":
+			questItem = "fish"
+		"fleurist":
+			questItem = "rose"
+		"couple":
+			questItem = "rose"
+		"depressed-man":
+			questItem = "antidepressants"
+	
+	if StaticInventory.checkForID(StaticData.get_item_id_by_name(questItem)) and StaticQuestProgress.getProgression(name) == 1:
+		StaticQuestProgress.progressQuest(name)
+	
+	dialogue.setNpc(name) # assigns proper dialogues
+	dialogue.create_queue() # creates the output queue for the dialogue box
+	
+	add_child(dialogue)
+
+func _dialogue_finished(name: String):
+	dialogue.queue_free()
+	get_tree().paused = false
+	if name.to_lower() != "fleurist":
+		if StaticQuestProgress.getProgression(name) == 0 or StaticQuestProgress.getProgression(name) == 2:
+			StaticQuestProgress.progressQuest(name)
 
 func showInteractIcon() -> void:
 	interactIcon.visible = true
@@ -181,3 +231,5 @@ func _on_couple_man_body_entered(body: Node2D) -> void:
 func _on_couple_man_body_exited(body: Node2D) -> void:
 	if body.name == "Cat":
 		canTalkToHopelessRomantic = false
+		
+		

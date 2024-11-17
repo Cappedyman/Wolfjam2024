@@ -1,58 +1,110 @@
-[gd_scene load_steps=5 format=3 uid="uid://02qf3kv7g5s8"]
+[gd_scene load_steps=11 format=3 uid="uid://02qf3kv7g5s8"]
 
 [ext_resource type="Script" path="res://Scenes/Pharmacy/pharmacy.gd" id="1_wxqtv"]
+[ext_resource type="Texture2D" uid="uid://lhu5rnmodtox" path="res://Art/pharmacycvgreens.png" id="2_a37tr"]
 [ext_resource type="PackedScene" uid="uid://qy2h6hipkt5t" path="res://Scenes/Player/Cat.tscn" id="2_th56s"]
+[ext_resource type="PackedScene" uid="uid://bygqklopp80j6" path="res://Scenes/Inventory/InvUI.tscn" id="4_ps0eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocsmi"]
-size = Vector2(58, 116)
+size = Vector2(186, 330)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdsuv"]
 size = Vector2(2314, 170)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5drc1"]
+size = Vector2(101, 1070.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1r1u"]
+size = Vector2(85, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7mk1"]
+size = Vector2(497, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjn14"]
+size = Vector2(111, 105)
+
 [node name="Pharmacy" type="Node2D"]
+position = Vector2(117, 835)
 script = ExtResource("1_wxqtv")
 
+[node name="Pharmacycvgreens" type="Sprite2D" parent="."]
+position = Vector2(461, -475.25)
+scale = Vector2(0.643333, 0.605417)
+texture = ExtResource("2_a37tr")
+
 [node name="PharmacyDoorReverse" type="Area2D" parent="."]
-position = Vector2(104, 369)
+position = Vector2(17, -656)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PharmacyDoorReverse"]
-position = Vector2(2, 68)
+position = Vector2(-6, 175)
 shape = SubResource("RectangleShape2D_ocsmi")
-
-[node name="ColorRect" type="ColorRect" parent="PharmacyDoorReverse"]
-offset_left = -27.0
-offset_top = 10.0
-offset_right = 30.0
-offset_bottom = 127.0
-color = Color(0.167575, 0.594729, 1, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(622, 581)
+position = Vector2(405, -166)
 shape = SubResource("RectangleShape2D_qdsuv")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -532.0
-offset_top = 498.0
-offset_right = 1780.0
-offset_bottom = 990.0
-color = Color(1, 0.653245, 0.783397, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 152.0
-offset_top = 132.0
-offset_right = 365.0
-offset_bottom = 201.0
-theme_override_font_sizes/font_size = 50
-text = "Pharmacy
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="Cat" parent="." instance=ExtResource("2_th56s")]
-position = Vector2(278, 441)
+position = Vector2(-10, -315)
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(-61, -363)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(-110, -12)
+shape = SubResource("RectangleShape2D_5drc1")
+
+[node name="wall" type="StaticBody2D" parent="wall"]
+position = Vector2(5090, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall"]
+position = Vector2(-3945, -345)
+shape = SubResource("RectangleShape2D_5drc1")
+
+[node name="stool" type="StaticBody2D" parent="."]
+position = Vector2(456, -393)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stool"]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_y1r1u")
+one_way_collision = true
+
+[node name="stool" type="StaticBody2D" parent="stool"]
+position = Vector2(-246, 38)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stool/stool"]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_y1r1u")
+one_way_collision = true
+
+[node name="counter" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="counter"]
+position = Vector2(808, -473)
+shape = SubResource("RectangleShape2D_j7mk1")
+one_way_collision = true
+
+[node name="moneyMan" type="Area2D" parent="."]
+position = Vector2(828, -597)
+
+[node name="ColorRect" type="ColorRect" parent="moneyMan"]
+offset_left = -68.0
+offset_top = -12.0
+offset_right = 42.0
+offset_bottom = 94.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moneyMan"]
+position = Vector2(-12.5, 43.5)
+shape = SubResource("RectangleShape2D_sjn14")
+
+[node name="InvUi" parent="." instance=ExtResource("4_ps0eh")]
+offset_left = 197.0
+offset_top = -747.0
+offset_right = 197.0
+offset_bottom = -747.0
 
 [connection signal="body_entered" from="PharmacyDoorReverse" to="." method="_on_pharmacy_door_reverse_body_entered"]
 [connection signal="body_exited" from="PharmacyDoorReverse" to="." method="_on_pharmacy_door_reverse_body_exited"]
+[connection signal="body_entered" from="moneyMan" to="." method="_on_money_man_body_entered"]
+[connection signal="body_exited" from="moneyMan" to="." method="_on_money_man_body_exited"]
