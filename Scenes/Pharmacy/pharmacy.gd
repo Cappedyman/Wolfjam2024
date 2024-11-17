@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if canEnterPharmacyDoor and Input.is_action_just_pressed("Interact"):
 		get_tree().change_scene_to_file("res://Scenes/Street/Street.tscn");
 		
-	if canTalkToMoneyMan and Input.is_action_just_pressed("Interact") and StaticQuestProgress.depressedQuest == 1:
+	if canTalkToMoneyMan and Input.is_action_just_pressed("Interact") and StaticQuestProgress.depressedQuest == 1 and StaticInventory.checkForID(StaticData.get_item_id_by_name("id")):
 		get_tree().paused = true
 		renderDialogueBox()
 		dialogue.process_mode = Node.PROCESS_MODE_ALWAYS # allows background to be frozen while dialogue plays
