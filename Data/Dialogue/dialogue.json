@@ -65,7 +65,7 @@
 		"pre-quest-dialogue": 
 			"@cMeow\n@nYeah, I'm gonna need to see an ID first\n@c>:3",
 		"during-quest-dialogue": 
-			"@cMeow\n@nUh huh, and this is a pick up for the anti-depressants\n@c:3\n@nYou're on anti-depresants?\n@c:3\n@n200mg?\n@cMeow\n@nI definitely need to up my dose...",
+			"@cMeow\n@nUh huh, and this is a pick up for the anti-depressants\n@c:3\n@nYou're on anti-depressants?\n@c:3\n@n200mg?\n@cMeow\n@nI definitely need to up my dose...",
 		"post-quest-dialogue": 
 			"@nI definitely need to up my dose...",
 		"residual-dialogue": 
