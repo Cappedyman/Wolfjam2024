@@ -3,21 +3,17 @@ extends Control
 # on the ready call preload the dictionary
 @onready var inventory = StaticInventory.inventory
 # get the rect slots
-@onready var slots: Array = $InventoryMasterBox/ItemBoxes.get_children()
-
+@onready var slots = $InventoryMasterBox/ItemBoxes.get_children()
 var isOpen = false
 var inventoryActive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# When inventory is opened pauses game
-	update_slots()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	close()
 
-	
-
-# populates inventory
+		
 func update_slots():
 	for i in range(min(inventory.size(), slots.size())):
 		var childrens = slots[i].get_children()[1]
@@ -27,11 +23,10 @@ func update_slots():
 		childrens.description = item_dict["description"]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 	
 
 func _input(event: InputEvent) -> void:
+	update_slots()
 	# open and close inventory
 	if Input.is_action_just_pressed("openInventory"):
 		if isOpen and inventoryActive:
@@ -55,11 +50,14 @@ func _input(event: InputEvent) -> void:
 	
 func open():
 	# sets quest/inventory window to visible
+	update_slots()
 	questMenu.updateQuests()
 	self.visible = true
 	# pauses game when inventory open
 	get_tree().paused = true
 	isOpen = true
+	var default_viewport = get_viewport()
+	
 
 
 func close():

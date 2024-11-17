@@ -11,6 +11,8 @@ resource_local_to_scene = false
 
 [node name="InvSlot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 1002
+z_as_relative = false
 custom_minimum_size = Vector2(20, 20)
 offset_right = 20.0
 offset_bottom = 20.0
