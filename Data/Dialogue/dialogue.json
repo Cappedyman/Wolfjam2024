@@ -82,5 +82,17 @@
 			"@nI'm glad you found that rose mon amie\n@c:3",
 		"residual-dialogue": 
 			"@nSo where did you learn how to talk?\n@cMeow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow meow\n@nVery intruiging indeed"
+	},
+	"7": {
+		"name": "Finale",
+		"image": "image path",
+		"pre-quest-dialogue": 
+			"",
+		"during-quest-dialogue": 
+			"",
+		"post-quest-dialogue": 
+			"",
+		"residual-dialogue": 
+			""
 	}
 }

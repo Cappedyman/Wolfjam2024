@@ -40,7 +40,9 @@ func setNpc(name: String) -> void:
 func create_queue() -> void:
 	if dialogueDict["name"].to_lower() == "fleurist":
 		questProgress = StaticQuestProgress.coupleQuest # fleurist follows same progression as couple
-		
+	if dialogueDict["name"].to_lower() == "pharmasist":
+		questProgress = StaticQuestProgress.depressedQuest #Pharmasist follows same progression as depressed-man
+	
 	match questProgress:
 		0:
 			outputQueue = lex(dialogueDict["pre-quest-dialogue"])
